@@ -18,8 +18,12 @@ export function Reveal({ children, className, delay = 0, y = 26, once = true }: 
   return (
     <motion.div
       className={className}
-      initial={reduced ? undefined : { opacity: 0, y, filter: "blur(6px)" }}
-      whileInView={reduced ? undefined : { opacity: 1, y: 0, filter: "blur(0px)" }}
+      {...(reduced
+        ? {}
+        : {
+            initial: { opacity: 0, y, filter: "blur(6px)" },
+            whileInView: { opacity: 1, y: 0, filter: "blur(0px)" },
+          })}
       viewport={{ once, margin: "-12% 0px -8% 0px" }}
       transition={{ duration: 0.9, delay, ease: [0.16, 1, 0.3, 1] }}
     >
@@ -135,7 +139,7 @@ export function Magnetic({
     <motion.div
       ref={ref}
       className={cn("inline-block", className)}
-      style={reduced ? undefined : { x, y }}
+      {...(reduced ? {} : { style: { x, y } })}
       onPointerMove={(e) => {
         if (reduced || !ref.current) return;
         const r = ref.current.getBoundingClientRect();
