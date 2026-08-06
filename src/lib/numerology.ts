@@ -338,7 +338,7 @@ export const NUMBER_PROFILES: Record<number, NumberProfile> = {
 };
 
 export function profileFor(n: number): NumberProfile {
-  return NUMBER_PROFILES[n] ?? NUMBER_PROFILES[reduce(n, false)] ?? NUMBER_PROFILES[1];
+  return NUMBER_PROFILES[n] ?? NUMBER_PROFILES[reduce(n, false)] ?? NUMBER_PROFILES[1]!;
 }
 
 export function karmicNote(total: number): string | null {
@@ -350,8 +350,8 @@ export function karmicNote(total: number): string | null {
 export function luckySetFor(n: number) {
   const key = NUMBER_PROFILES[n] ? n : reduce(n, false);
   return {
-    numbers: LUCKY_NUMBERS[key] ?? LUCKY_NUMBERS[1],
-    colors: LUCKY_COLORS[key] ?? LUCKY_COLORS[1],
-    days: LUCKY_DAYS[key] ?? LUCKY_DAYS[1],
+    numbers: LUCKY_NUMBERS[key] ?? LUCKY_NUMBERS[1]!,
+    colors: LUCKY_COLORS[key] ?? LUCKY_COLORS[1]!,
+    days: LUCKY_DAYS[key] ?? LUCKY_DAYS[1]!,
   };
 }
