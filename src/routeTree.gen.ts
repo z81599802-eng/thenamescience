@@ -11,11 +11,16 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as BookRouteImport } from './routes/book'
 import { Route as CalculatorsRouteImport } from './routes/calculators'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as FaqsRouteImport } from './routes/faqs'
 import { Route as NamelogyRouteImport } from './routes/namelogy'
 import { Route as NumerologyRouteImport } from './routes/numerology'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SuccessStoriesRouteImport } from './routes/success-stories'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
@@ -29,9 +34,24 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BookRoute = BookRouteImport.update({
+  id: '/book',
+  path: '/book',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CalculatorsRoute = CalculatorsRouteImport.update({
   id: '/calculators',
   path: '/calculators',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqsRoute = FaqsRouteImport.update({
+  id: '/faqs',
+  path: '/faqs',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NamelogyRoute = NamelogyRouteImport.update({
@@ -44,6 +64,11 @@ const NumerologyRoute = NumerologyRouteImport.update({
   path: '/numerology',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
@@ -52,6 +77,11 @@ const ServicesRoute = ServicesRouteImport.update({
 const SuccessStoriesRoute = SuccessStoriesRouteImport.update({
   id: '/success-stories',
   path: '/success-stories',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
@@ -68,22 +98,32 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/book': typeof BookRoute
   '/calculators': typeof CalculatorsRoute
+  '/contact': typeof ContactRoute
+  '/faqs': typeof FaqsRoute
   '/namelogy': typeof NamelogyRoute
   '/numerology': typeof NumerologyRoute
+  '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRoute
   '/success-stories': typeof SuccessStoriesRoute
+  '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/book': typeof BookRoute
   '/calculators': typeof CalculatorsRoute
+  '/contact': typeof ContactRoute
+  '/faqs': typeof FaqsRoute
   '/namelogy': typeof NamelogyRoute
   '/numerology': typeof NumerologyRoute
+  '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRoute
   '/success-stories': typeof SuccessStoriesRoute
+  '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/blog': typeof BlogIndexRoute
 }
@@ -91,11 +131,16 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/book': typeof BookRoute
   '/calculators': typeof CalculatorsRoute
+  '/contact': typeof ContactRoute
+  '/faqs': typeof FaqsRoute
   '/namelogy': typeof NamelogyRoute
   '/numerology': typeof NumerologyRoute
+  '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRoute
   '/success-stories': typeof SuccessStoriesRoute
+  '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/blog/': typeof BlogIndexRoute
 }
@@ -104,33 +149,48 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/book'
     | '/calculators'
+    | '/contact'
+    | '/faqs'
     | '/namelogy'
     | '/numerology'
+    | '/privacy'
     | '/services'
     | '/success-stories'
+    | '/terms'
     | '/blog/$slug'
     | '/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/book'
     | '/calculators'
+    | '/contact'
+    | '/faqs'
     | '/namelogy'
     | '/numerology'
+    | '/privacy'
     | '/services'
     | '/success-stories'
+    | '/terms'
     | '/blog/$slug'
     | '/blog'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/book'
     | '/calculators'
+    | '/contact'
+    | '/faqs'
     | '/namelogy'
     | '/numerology'
+    | '/privacy'
     | '/services'
     | '/success-stories'
+    | '/terms'
     | '/blog/$slug'
     | '/blog/'
   fileRoutesById: FileRoutesById
@@ -138,11 +198,16 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  BookRoute: typeof BookRoute
   CalculatorsRoute: typeof CalculatorsRoute
+  ContactRoute: typeof ContactRoute
+  FaqsRoute: typeof FaqsRoute
   NamelogyRoute: typeof NamelogyRoute
   NumerologyRoute: typeof NumerologyRoute
+  PrivacyRoute: typeof PrivacyRoute
   ServicesRoute: typeof ServicesRoute
   SuccessStoriesRoute: typeof SuccessStoriesRoute
+  TermsRoute: typeof TermsRoute
   BlogSlugRoute: typeof BlogSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
 }
@@ -163,11 +228,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/book': {
+      id: '/book'
+      path: '/book'
+      fullPath: '/book'
+      preLoaderRoute: typeof BookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/calculators': {
       id: '/calculators'
       path: '/calculators'
       fullPath: '/calculators'
       preLoaderRoute: typeof CalculatorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faqs': {
+      id: '/faqs'
+      path: '/faqs'
+      fullPath: '/faqs'
+      preLoaderRoute: typeof FaqsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/namelogy': {
@@ -184,6 +270,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NumerologyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
@@ -196,6 +289,13 @@ declare module '@tanstack/react-router' {
       path: '/success-stories'
       fullPath: '/success-stories'
       preLoaderRoute: typeof SuccessStoriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog/': {
@@ -218,11 +318,16 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  BookRoute: BookRoute,
   CalculatorsRoute: CalculatorsRoute,
+  ContactRoute: ContactRoute,
+  FaqsRoute: FaqsRoute,
   NamelogyRoute: NamelogyRoute,
   NumerologyRoute: NumerologyRoute,
+  PrivacyRoute: PrivacyRoute,
   ServicesRoute: ServicesRoute,
   SuccessStoriesRoute: SuccessStoriesRoute,
+  TermsRoute: TermsRoute,
   BlogSlugRoute: BlogSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
 }
