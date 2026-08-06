@@ -4,7 +4,7 @@ import { GoldRule } from "@/components/luxury/ui";
 import { Reveal } from "@/components/motion/primitives";
 import { POSTS } from "@/lib/content";
 
-export const Route = createFileRoute("/blog")({
+export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
       { title: "The Journal — Numerology & Namelogy Writing" },

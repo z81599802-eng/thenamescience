@@ -62,7 +62,7 @@ const CALCS: Calc[] = [
     blurb: "The spine of your chart, from your date of birth.",
     fields: [{ name: "dob", label: "Date of birth", type: "date" }],
     run: (v) => {
-      const r = lifePath(v.dob ?? "");
+      const r = lifePath(v['dob'] ?? "");
       if (!r) return null;
       const p = profileFor(r.number);
       return {
@@ -78,7 +78,7 @@ const CALCS: Calc[] = [
     blurb: "The sum of every digit in your birth date.",
     fields: [{ name: "dob", label: "Date of birth", type: "date" }],
     run: (v) => {
-      const r = destinyNumber(v.dob ?? "");
+      const r = destinyNumber(v['dob'] ?? "");
       if (!r) return null;
       const p = profileFor(r.number);
       const karmic = karmicNote(r.total);
@@ -95,9 +95,9 @@ const CALCS: Calc[] = [
     blurb: "Your name as written today, in both systems.",
     fields: [{ name: "name", label: "Full name", type: "text", placeholder: "Ananya Raghavan" }],
     run: (v) => {
-      if (!v.name?.trim()) return null;
-      const py = nameNumber(v.name, "pythagorean");
-      const ch = nameNumber(v.name, "chaldean");
+      if (!v['name']?.trim()) return null;
+      const py = nameNumber(v['name'], "pythagorean");
+      const ch = nameNumber(v['name'], "chaldean");
       const p = profileFor(py.number);
       return {
         value: py.number,
@@ -116,8 +116,8 @@ const CALCS: Calc[] = [
     blurb: "Test an entity, trading or brand name.",
     fields: [{ name: "name", label: "Business name", type: "text", placeholder: "Aureum Studio" }],
     run: (v) => {
-      if (!v.name?.trim()) return null;
-      const r = nameNumber(v.name, "chaldean");
+      if (!v['name']?.trim()) return null;
+      const r = nameNumber(v['name'], "chaldean");
       const p = profileFor(r.number);
       return {
         value: r.number,
@@ -136,7 +136,7 @@ const CALCS: Calc[] = [
     blurb: "The digits that agree with your chart.",
     fields: [{ name: "dob", label: "Date of birth", type: "date" }],
     run: (v) => {
-      const r = lifePath(v.dob ?? "");
+      const r = lifePath(v['dob'] ?? "");
       if (!r) return null;
       return { value: r.number, label: "Life path", lines: lucky(r.number) };
     },
@@ -147,7 +147,7 @@ const CALCS: Calc[] = [
     blurb: "A palette drawn from your birth vibration.",
     fields: [{ name: "dob", label: "Date of birth", type: "date" }],
     run: (v) => {
-      const r = lifePath(v.dob ?? "");
+      const r = lifePath(v['dob'] ?? "");
       if (!r) return null;
       return {
         value: r.number,
@@ -162,7 +162,7 @@ const CALCS: Calc[] = [
     blurb: "The best days to sign, launch and begin.",
     fields: [{ name: "dob", label: "Date of birth", type: "date" }],
     run: (v) => {
-      const r = lifePath(v.dob ?? "");
+      const r = lifePath(v['dob'] ?? "");
       if (!r) return null;
       return {
         value: r.number,
@@ -180,7 +180,7 @@ const CALCS: Calc[] = [
       { name: "b", label: "Partner's date of birth", type: "date" },
     ],
     run: (v) => {
-      const r = compatibility(v.a ?? "", v.b ?? "");
+      const r = compatibility(v['a'] ?? "", v['b'] ?? "");
       if (!r) return null;
       return {
         value: `${r.score}%`,
@@ -198,7 +198,7 @@ const CALCS: Calc[] = [
     blurb: "The season you are currently in.",
     fields: [{ name: "dob", label: "Date of birth", type: "date" }],
     run: (v) => {
-      const r = personalYear(v.dob ?? "");
+      const r = personalYear(v['dob'] ?? "");
       if (!r) return null;
       const p = profileFor(r.number);
       return {
@@ -214,7 +214,7 @@ const CALCS: Calc[] = [
     blurb: "The vibration of the home you live in.",
     fields: [{ name: "num", label: "House or flat number", type: "text", placeholder: "12B" }],
     run: (v) => {
-      const r = digitsNumber(v.num ?? "");
+      const r = digitsNumber(v['num'] ?? "");
       if (!r) return null;
       const p = profileFor(r.number);
       return { value: r.number, label: p.keyword, lines: [p.summary, `Digit total: ${r.total}`] };
@@ -226,7 +226,7 @@ const CALCS: Calc[] = [
     blurb: "Registration plates, read numerically.",
     fields: [{ name: "num", label: "Registration number", type: "text", placeholder: "TN 09 AB 1234" }],
     run: (v) => {
-      const r = digitsNumber(v.num ?? "");
+      const r = digitsNumber(v['num'] ?? "");
       if (!r) return null;
       const p = profileFor(r.number);
       return { value: r.number, label: p.keyword, lines: [p.summary, `Digit total: ${r.total}`] };
@@ -238,7 +238,7 @@ const CALCS: Calc[] = [
     blurb: "The number you give away most often.",
     fields: [{ name: "num", label: "Mobile number", type: "text", placeholder: "98400 12345" }],
     run: (v) => {
-      const r = digitsNumber(v.num ?? "");
+      const r = digitsNumber(v['num'] ?? "");
       if (!r) return null;
       const p = profileFor(r.number);
       return {

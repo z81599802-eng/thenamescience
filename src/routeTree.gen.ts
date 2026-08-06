@@ -11,9 +11,13 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as CalculatorsRouteImport } from './routes/calculators'
 import { Route as NamelogyRouteImport } from './routes/namelogy'
 import { Route as NumerologyRouteImport } from './routes/numerology'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SuccessStoriesRouteImport } from './routes/success-stories'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -23,6 +27,11 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CalculatorsRoute = CalculatorsRouteImport.update({
+  id: '/calculators',
+  path: '/calculators',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NamelogyRoute = NamelogyRouteImport.update({
@@ -40,43 +49,102 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SuccessStoriesRoute = SuccessStoriesRouteImport.update({
+  id: '/success-stories',
+  path: '/success-stories',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/calculators': typeof CalculatorsRoute
   '/namelogy': typeof NamelogyRoute
   '/numerology': typeof NumerologyRoute
   '/services': typeof ServicesRoute
+  '/success-stories': typeof SuccessStoriesRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/calculators': typeof CalculatorsRoute
   '/namelogy': typeof NamelogyRoute
   '/numerology': typeof NumerologyRoute
   '/services': typeof ServicesRoute
+  '/success-stories': typeof SuccessStoriesRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/calculators': typeof CalculatorsRoute
   '/namelogy': typeof NamelogyRoute
   '/numerology': typeof NumerologyRoute
   '/services': typeof ServicesRoute
+  '/success-stories': typeof SuccessStoriesRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/namelogy' | '/numerology' | '/services'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/calculators'
+    | '/namelogy'
+    | '/numerology'
+    | '/services'
+    | '/success-stories'
+    | '/blog/$slug'
+    | '/blog/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/namelogy' | '/numerology' | '/services'
-  id: '__root__' | '/' | '/about' | '/namelogy' | '/numerology' | '/services'
+  to:
+    | '/'
+    | '/about'
+    | '/calculators'
+    | '/namelogy'
+    | '/numerology'
+    | '/services'
+    | '/success-stories'
+    | '/blog/$slug'
+    | '/blog'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/calculators'
+    | '/namelogy'
+    | '/numerology'
+    | '/services'
+    | '/success-stories'
+    | '/blog/$slug'
+    | '/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  CalculatorsRoute: typeof CalculatorsRoute
   NamelogyRoute: typeof NamelogyRoute
   NumerologyRoute: typeof NumerologyRoute
   ServicesRoute: typeof ServicesRoute
+  SuccessStoriesRoute: typeof SuccessStoriesRoute
+  BlogSlugRoute: typeof BlogSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -93,6 +161,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/calculators': {
+      id: '/calculators'
+      path: '/calculators'
+      fullPath: '/calculators'
+      preLoaderRoute: typeof CalculatorsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/namelogy': {
@@ -116,15 +191,40 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/success-stories': {
+      id: '/success-stories'
+      path: '/success-stories'
+      fullPath: '/success-stories'
+      preLoaderRoute: typeof SuccessStoriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  CalculatorsRoute: CalculatorsRoute,
   NamelogyRoute: NamelogyRoute,
   NumerologyRoute: NumerologyRoute,
   ServicesRoute: ServicesRoute,
+  SuccessStoriesRoute: SuccessStoriesRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

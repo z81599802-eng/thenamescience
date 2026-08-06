@@ -80,7 +80,7 @@ function Article() {
           </p>
           <GoldRule className="mt-6" />
           <div className="mt-10 space-y-7">
-            {post.body.map((para) => (
+            {post.body.map((para: string) => (
               <p key={para.slice(0, 24)} className="text-[1.02rem] leading-[1.85] text-muted-foreground">
                 {para}
               </p>
