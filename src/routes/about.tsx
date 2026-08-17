@@ -8,13 +8,13 @@ import studioImg from "@/assets/studio-interior.jpg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About the Studio — Aureum Numerology" },
+      { title: "About the Studio — The Name Science" },
       {
         name: "description",
         content:
           "Eighteen years of practitioner-led numerology and namelogy. Meet the studio, its method and its promise of confidentiality.",
       },
-      { property: "og:title", content: "About the Studio — Aureum Numerology" },
+      { property: "og:title", content: "About the Studio — The Name Science" },
       {
         property: "og:description",
         content: "A practitioner-led numerology studio in Chennai, serving clients in 41 countries.",
@@ -32,7 +32,7 @@ function About() {
       <PageHero
         eyebrow="The studio"
         title="A calm room, a prepared chart, and your question"
-        description="Aureum is a single-practitioner studio. Every reading is prepared by hand, held without hurry, and documented so you can return to it long after the session ends."
+        description="The Name Science is a practitioner-led studio. Every reading is prepared by hand, held without hurry, and documented so you can return to it long after the session ends."
       >
         <LuxuryLink to="/book">Book a consultation</LuxuryLink>
       </PageHero>

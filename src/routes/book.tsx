@@ -7,13 +7,13 @@ import { SERVICES } from "@/lib/content";
 export const Route = createFileRoute("/book")({
   head: () => ({
     meta: [
-      { title: "Book a Consultation — Aureum Numerology" },
+      { title: "Book a Consultation — The Name Science" },
       {
         name: "description",
         content:
           "Book an online or in-studio numerology consultation in four steps: choose a format, pick a date and time, share your birth details and confirm.",
       },
-      { property: "og:title", content: "Book a Consultation — Aureum Numerology" },
+      { property: "og:title", content: "Book a Consultation — The Name Science" },
       { property: "og:description", content: "A calm, four-step booking flow." },
       { property: "og:url", content: "/book" },
     ],

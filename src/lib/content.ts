@@ -1,10 +1,10 @@
 export const STUDIO = {
-  name: "Aureum Numerology Studio",
-  short: "Aureum",
+  name: "The Name Science Studio",
+  short: "The Name Science",
   tagline: "Numerology & Namelogy Consultation Studio",
   phone: "+91 98400 12345",
   whatsapp: "919840012345",
-  email: "studio@aureumnumerology.com",
+  email: "studio@thenamescience.com",
   address: "12 Ivory Lane, Alwarpet, Chennai 600018, India",
   hours: "Mon – Sat · 10:00 – 19:00 IST",
 };

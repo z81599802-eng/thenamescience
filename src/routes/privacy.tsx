@@ -5,13 +5,13 @@ import { STUDIO } from "@/lib/content";
 export const Route = createFileRoute("/privacy")({
   head: () => ({
     meta: [
-      { title: "Privacy Policy — Aureum Numerology" },
+      { title: "Privacy Policy — The Name Science" },
       {
         name: "description",
         content:
           "How the studio handles birth details, consultation notes, calculator inputs, cookies and your right to deletion.",
       },
-      { property: "og:title", content: "Privacy Policy — Aureum Numerology" },
+      { property: "og:title", content: "Privacy Policy — The Name Science" },
       { property: "og:description", content: "What we store, why, and for how long." },
       { property: "og:url", content: "/privacy" },
     ],

@@ -15,7 +15,7 @@ export const Route = createFileRoute("/numerology")({
         content:
           "Life Path, Destiny, Soul, Personality, Expression and Birthday numbers explained, along with master numbers 11, 22, 33 and karmic numbers.",
       },
-      { property: "og:title", content: "Numerology Explained — Aureum Studio" },
+      { property: "og:title", content: "Numerology Explained — The Name Science" },
       {
         property: "og:description",
         content: "The eight core readings in a numerology chart, with the arithmetic shown.",

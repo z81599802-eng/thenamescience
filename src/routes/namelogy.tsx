@@ -14,7 +14,7 @@ export const Route = createFileRoute("/namelogy")({
         content:
           "Name analysis and correction, business and brand naming, baby names, marriage name guidance, signature analysis and lucky spelling.",
       },
-      { property: "og:title", content: "Namelogy — Aureum Studio" },
+      { property: "og:title", content: "Namelogy — The Name Science" },
       {
         property: "og:description",
         content: "Eight namelogy services for people, families and brands.",

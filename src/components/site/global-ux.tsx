@@ -109,11 +109,11 @@ export function FloatingActions() {
       </button>
 
       <a
-        href={`https://wa.me/${STUDIO.whatsapp}`}
+        href={`https://wa.me/${STUDIO.whatsapp}?text=${encodeURIComponent("Hello! I would like to enquire about a consultation with The Name Science.")}`}
         target="_blank"
         rel="noreferrer"
         aria-label="Chat with the studio on WhatsApp"
-        className="grid h-12 w-12 place-items-center rounded-full bg-primary text-primary-foreground shadow-luxe transition-transform duration-500 hover:scale-105"
+        className="grid h-12 w-12 place-items-center rounded-full bg-emerald-600 text-white shadow-luxe transition-transform duration-500 hover:scale-105"
       >
         <MessageCircle className="h-5 w-5" />
       </a>
@@ -221,7 +221,7 @@ export function LoadingCurtain() {
             className="origin-center animate-[spin-slow_1.4s_linear_infinite]"
           />
         </svg>
-        <p className="eyebrow mt-5">Aureum</p>
+        <img src="/logo.png" alt={STUDIO.name} className="mx-auto mt-5 h-14 w-auto object-contain" />
       </div>
     </div>
   );

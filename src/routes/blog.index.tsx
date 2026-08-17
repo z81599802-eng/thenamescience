@@ -13,7 +13,7 @@ export const Route = createFileRoute("/blog/")({
         content:
           "Essays on numerology basics, the power of a name, lucky numbers, business naming, baby names, personal growth cycles and yearly forecasts.",
       },
-      { property: "og:title", content: "The Journal — Aureum Numerology" },
+      { property: "og:title", content: "The Journal — The Name Science" },
       {
         property: "og:description",
         content: "Nine essays on numbers, names and the decisions they inform.",

@@ -18,13 +18,13 @@ import { useState } from "react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Aureum — Numerology & Namelogy Consultation Studio" },
+      { title: "The Name Science — Numerology & Namelogy Consultation Studio" },
       {
         name: "description",
         content:
           "Discover your life path, destiny number and name vibration with a premium numerology and namelogy studio. Free calculators and personal consultations.",
       },
-      { property: "og:title", content: "Aureum — Numerology & Namelogy Consultation Studio" },
+      { property: "og:title", content: "The Name Science — Numerology & Namelogy Consultation Studio" },
       {
         property: "og:description",
         content:

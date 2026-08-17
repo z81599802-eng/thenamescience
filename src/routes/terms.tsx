@@ -4,13 +4,13 @@ import { PageHero, Section } from "@/components/site/page-shell";
 export const Route = createFileRoute("/terms")({
   head: () => ({
     meta: [
-      { title: "Terms of Service — Aureum Numerology" },
+      { title: "Terms of Service — The Name Science" },
       {
         name: "description",
         content:
           "Terms covering consultations, payments, rescheduling, the nature of guidance offered and intellectual property.",
       },
-      { property: "og:title", content: "Terms of Service — Aureum Numerology" },
+      { property: "og:title", content: "Terms of Service — The Name Science" },
       { property: "og:description", content: "The terms under which the studio works with clients." },
       { property: "og:url", content: "/terms" },
     ],

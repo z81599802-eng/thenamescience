@@ -24,7 +24,7 @@ export const Route = createFileRoute("/calculators")({
         content:
           "Twelve free numerology calculators: life path, destiny, name, business name, lucky number, colour and day, compatibility, personal year, house, vehicle and mobile numbers.",
       },
-      { property: "og:title", content: "Free Numerology Calculators — Aureum Studio" },
+      { property: "og:title", content: "Free Numerology Calculators — The Name Science" },
       {
         property: "og:description",
         content: "Instant, private numerology calculators — nothing leaves your browser.",
@@ -114,7 +114,7 @@ const CALCS: Calc[] = [
     id: "business",
     title: "Business Name Calculator",
     blurb: "Test an entity, trading or brand name.",
-    fields: [{ name: "name", label: "Business name", type: "text", placeholder: "Aureum Studio" }],
+    fields: [{ name: "name", label: "Business name", type: "text", placeholder: "The Name Science" }],
     run: (v) => {
       if (!v['name']?.trim()) return null;
       const r = nameNumber(v['name'], "chaldean");

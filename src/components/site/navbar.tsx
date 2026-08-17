@@ -64,18 +64,12 @@ export function Navbar() {
       )}
     >
       <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 sm:px-8">
-        <Link to="/" className="flex min-w-0 items-center gap-3">
-          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-gold/60">
-            <span className="font-display text-lg text-gold">9</span>
-          </span>
-          <span className="min-w-0">
-            <span className="block truncate font-display text-lg leading-tight sm:text-xl">
-              {STUDIO.short}
-            </span>
-            <span className="hidden text-[0.6rem] uppercase tracking-[0.24em] text-muted-foreground sm:block">
-              Numerology Studio
-            </span>
-          </span>
+        <Link to="/" className="flex min-w-0 items-center" aria-label={STUDIO.name}>
+          <img
+            src="/logo.png"
+            alt={STUDIO.name}
+            className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto shrink-0 object-contain transition-all duration-300"
+          />
         </Link>
 
         <div className="flex items-center gap-1.5">

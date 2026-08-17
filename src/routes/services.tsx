@@ -8,13 +8,13 @@ import { PACKAGES, SERVICES } from "@/lib/content";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Consultations & Packages — Aureum Numerology" },
+      { title: "Consultations & Packages — The Name Science" },
       {
         name: "description",
         content:
           "Personal and business numerology consultations, baby naming, name correction, lucky dates, compatibility and career guidance, online or in studio.",
       },
-      { property: "og:title", content: "Consultations & Packages — Aureum Numerology" },
+      { property: "og:title", content: "Consultations & Packages — The Name Science" },
       {
         property: "og:description",
         content: "Eight consultation formats and three packages, online or in studio.",

@@ -13,12 +13,12 @@ export const Route = createFileRoute("/blog/$slug")({
   head: ({ params, loaderData }) => {
     if (!loaderData) {
       return {
-        meta: [{ title: "Article unavailable — Aureum Journal" }, { name: "robots", content: "noindex" }],
+        meta: [{ title: "Article unavailable — The Name Science Journal" }, { name: "robots", content: "noindex" }],
       };
     }
     return {
       meta: [
-        { title: `${loaderData.post.title} — Aureum Journal` },
+        { title: `${loaderData.post.title} — The Name Science Journal` },
         { name: "description", content: loaderData.post.excerpt },
         { property: "og:title", content: loaderData.post.title },
         { property: "og:description", content: loaderData.post.excerpt },

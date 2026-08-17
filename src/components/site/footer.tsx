@@ -15,7 +15,9 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
         <div className="grid gap-14 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           <div>
-            <p className="font-display text-3xl leading-tight">{STUDIO.name}</p>
+            <Link to="/" aria-label={STUDIO.name} className="inline-block">
+              <img src="/logo.png" alt={STUDIO.name} className="h-12 sm:h-16 md:h-20 w-auto object-contain" />
+            </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
               A consultation studio where numerology, namelogy and modern counselling meet — calm,
               structured and entirely confidential.

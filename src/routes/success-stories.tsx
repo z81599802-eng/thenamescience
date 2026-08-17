@@ -7,13 +7,13 @@ import { JOURNEY, TESTIMONIALS } from "@/lib/content";
 export const Route = createFileRoute("/success-stories")({
   head: () => ({
     meta: [
-      { title: "Client Success Stories — Aureum Numerology" },
+      { title: "Client Success Stories — The Name Science" },
       {
         name: "description",
         content:
           "Before and after journeys from clients of the studio: brand renaming, career changes, relationship clarity and baby naming.",
       },
-      { property: "og:title", content: "Client Success Stories — Aureum Numerology" },
+      { property: "og:title", content: "Client Success Stories — The Name Science" },
       {
         property: "og:description",
         content: "Quiet changes with measurable outcomes, told by the clients themselves.",
