@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, Section } from "@/components/site/page-shell";
+import { STUDIO } from "@/lib/content";
 
 export const Route = createFileRoute("/terms")({
   head: () => ({
@@ -12,9 +13,9 @@ export const Route = createFileRoute("/terms")({
       },
       { property: "og:title", content: "Terms of Service — The Name Science" },
       { property: "og:description", content: "The terms under which the studio works with clients." },
-      { property: "og:url", content: "/terms" },
+      { property: "og:url", content: `${STUDIO.url}/terms` },
     ],
-    links: [{ rel: "canonical", href: "/terms" }],
+    links: [{ rel: "canonical", href: `${STUDIO.url}/terms` }],
   }),
   component: Terms,
 });
@@ -26,7 +27,7 @@ const SECTIONS = [
   },
   {
     h: "Bookings and payment",
-    p: "An appointment is confirmed once the studio replies and payment is received. Fees are quoted per consultation or package and include the written report.",
+    p: "An appointment is confirmed once the studio replies and payment is received. Fees are quoted per consultation and include the written report.",
   },
   {
     h: "Rescheduling and cancellation",
@@ -39,10 +40,6 @@ const SECTIONS = [
   {
     h: "Intellectual property",
     p: "Charts, reports and written material remain the intellectual property of the studio and are licensed to you for personal use. Commercial redistribution requires written permission.",
-  },
-  {
-    h: "Website calculators",
-    p: "Calculators on this website are provided for interest and are not a substitute for a prepared consultation.",
   },
 ];
 

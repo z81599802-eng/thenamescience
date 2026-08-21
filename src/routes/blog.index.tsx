@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero, Section } from "@/components/site/page-shell";
 import { GoldRule } from "@/components/luxury/ui";
 import { Reveal } from "@/components/motion/primitives";
-import { POSTS } from "@/lib/content";
+import { POSTS, STUDIO } from "@/lib/content";
 
 export const Route = createFileRoute("/blog/")({
   head: () => ({
@@ -18,9 +18,9 @@ export const Route = createFileRoute("/blog/")({
         property: "og:description",
         content: "Nine essays on numbers, names and the decisions they inform.",
       },
-      { property: "og:url", content: "/blog" },
+      { property: "og:url", content: `${STUDIO.url}/blog` },
     ],
-    links: [{ rel: "canonical", href: "/blog" }],
+    links: [{ rel: "canonical", href: `${STUDIO.url}/blog` }],
   }),
   component: Blog,
 });

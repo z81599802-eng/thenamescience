@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { PageHero, Section } from "@/components/site/page-shell";
 import { GlassCard, GoldRule, LuxuryButton, NumberDial } from "@/components/luxury/ui";
-import { SERVICES } from "@/lib/content";
+import { SERVICES, STUDIO } from "@/lib/content";
 
 export const Route = createFileRoute("/book")({
   head: () => ({
@@ -15,9 +15,9 @@ export const Route = createFileRoute("/book")({
       },
       { property: "og:title", content: "Book a Consultation — The Name Science" },
       { property: "og:description", content: "A calm, four-step booking flow." },
-      { property: "og:url", content: "/book" },
+      { property: "og:url", content: `${STUDIO.url}/book` },
     ],
-    links: [{ rel: "canonical", href: "/book" }],
+    links: [{ rel: "canonical", href: `${STUDIO.url}/book` }],
   }),
   component: Book,
 });
@@ -33,6 +33,7 @@ function Book() {
     date: "",
     slot: "",
     name: "",
+    phone: "",
     dob: "",
     tob: "",
     place: "",
@@ -42,55 +43,87 @@ function Book() {
   const [done, setDone] = useState(false);
   const set = (k: keyof typeof form, v: string) => setForm((f) => ({ ...f, [k]: v }));
 
+  const bookingText = `Hello! I would like to book a consultation:\n- Service: ${form.service}\n- Format: ${form.mode}\n- Preferred Date: ${form.date || "Not specified"}\n- Preferred Slot: ${form.slot || "Not specified"}\n- Full Name: ${form.name}\n- Phone: ${form.phone}\n- Date of Birth: ${form.dob || "Not specified"}\n- Time of Birth: ${form.tob || "Not specified"}\n- Place of Birth: ${form.place || "Not specified"}\n- Purpose: ${form.purpose || "Not specified"}\n- Additional Notes: ${form.notes || "None"}`;
+  const whatsappUrl = `https://wa.me/${STUDIO.whatsapp}?text=${encodeURIComponent(bookingText)}`;
+
   return (
     <>
       <PageHero
         eyebrow="Book consultation"
         title="Four calm steps to your appointment"
-        description="Your details stay in this browser until you confirm; the studio then reaches out to settle payment."
+        description="Your details stay in this browser until you confirm; hitting submit opens WhatsApp to send your booking directly."
       />
 
       <Section>
         <div className="mx-auto max-w-3xl">
-          <ol className="flex flex-wrap items-center gap-3">
-            {STEPS.map((s, i) => (
-              <li key={s} className="flex items-center gap-3">
-                <span
-                  className={`grid h-8 w-8 place-items-center rounded-full border text-xs transition-colors ${
-                    i <= step ? "border-gold bg-gold/15 text-foreground" : "border-border/70 text-muted-foreground"
+          {/* Step Indicator Header */}
+          <div className="rounded-lg border border-border/70 bg-card/40 p-3 sm:p-5">
+            <ol className="grid grid-cols-4 gap-1.5 sm:gap-3 text-center">
+              {STEPS.map((s, i) => (
+                <li
+                  key={s}
+                  className={`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2.5 ${
+                    i <= step ? "text-foreground font-medium" : "text-muted-foreground opacity-60"
                   }`}
                 >
-                  {i + 1}
-                </span>
-                <span
-                  className={`text-[0.68rem] uppercase tracking-[0.16em] ${
-                    i <= step ? "text-foreground" : "text-muted-foreground"
-                  }`}
-                >
-                  {s}
-                </span>
-                {i < STEPS.length - 1 && <span aria-hidden="true" className="hairline w-8" />}
-              </li>
-            ))}
-          </ol>
+                  <span
+                    className={`grid h-7 w-7 sm:h-8 sm:w-8 shrink-0 place-items-center rounded-full border text-xs font-display transition-colors ${
+                      i <= step ? "border-gold bg-gold/15 text-gold shadow-sm" : "border-border/70 text-muted-foreground"
+                    }`}
+                  >
+                    {i + 1}
+                  </span>
+                  <span className="text-[0.6rem] sm:text-[0.7rem] uppercase tracking-[0.12em] truncate max-w-full">
+                    {s}
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </div>
 
-          <GlassCard hover={false} className="mt-10">
+          <GlassCard hover={false} className="mt-6 sm:mt-8 p-5 sm:p-8">
             {done ? (
-              <div className="text-center">
-                <NumberDial value="✓" label="Requested" size={160} percent={100} />
-                <h2 className="mt-6 text-2xl">Your appointment request is in</h2>
+              <div className="text-center py-4">
+                <div className="flex justify-center">
+                  <NumberDial value="✓" label="Requested" size={140} percent={100} />
+                </div>
+                <h2 className="mt-6 text-xl sm:text-2xl font-medium">Your appointment request is ready!</h2>
                 <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
                   {form.service} · {form.mode} · {form.date || "date to confirm"}{" "}
-                  {form.slot && `at ${form.slot}`}. The studio will confirm by WhatsApp or email
-                  shortly.
+                  {form.slot && `at ${form.slot}`}. Tap below to send your booking directly to the studio via WhatsApp.
                 </p>
+                <div className="mt-6 flex flex-wrap justify-center gap-3">
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-xs font-medium uppercase tracking-[0.16em] text-charcoal shadow-luxe transition-transform hover:scale-[1.02]"
+                  >
+                    Open WhatsApp Now
+                  </a>
+                  <LuxuryButton
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() => {
+                      setDone(false);
+                      setStep(0);
+                    }}
+                  >
+                    Start New Booking
+                  </LuxuryButton>
+                </div>
               </div>
             ) : (
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  if (step < STEPS.length - 1) setStep((s) => s + 1);
-                  else setDone(true);
+                  if (step < STEPS.length - 1) {
+                    setStep((s) => s + 1);
+                  } else {
+                    window.open(whatsappUrl, "_blank");
+                    setDone(true);
+                  }
                 }}
               >
                 {step === 0 && (
@@ -125,16 +158,16 @@ function Book() {
                       <legend className="text-[0.68rem] uppercase tracking-[0.16em] text-muted-foreground">
                         Time slot
                       </legend>
-                      <div className="mt-3 flex flex-wrap gap-2">
+                      <div className="mt-3 grid grid-cols-3 gap-2.5 sm:flex sm:flex-wrap">
                         {SLOTS.map((s) => (
                           <button
                             type="button"
                             key={s}
                             onClick={() => set("slot", s)}
                             aria-pressed={form.slot === s}
-                            className={`rounded-full border px-5 py-2.5 text-sm transition-all duration-300 ${
+                            className={`rounded-full border px-3 sm:px-5 py-2.5 text-xs sm:text-sm text-center transition-all duration-300 ${
                               form.slot === s
-                                ? "border-gold bg-gold/15"
+                                ? "border-gold bg-gold/15 text-foreground font-medium"
                                 : "border-border/70 text-muted-foreground hover:border-gold/60"
                             }`}
                           >
@@ -149,9 +182,12 @@ function Book() {
                 {step === 2 && (
                   <div className="grid gap-5 sm:grid-cols-2">
                     <Input id="b-name" label="Full name" value={form.name} onChange={(v) => set("name", v)} required />
+                    <Input id="b-phone" label="Phone number" type="tel" value={form.phone} onChange={(v) => set("phone", v)} required />
                     <Input id="b-dob" label="Date of birth" type="date" value={form.dob} onChange={(v) => set("dob", v)} required />
                     <Input id="b-tob" label="Time of birth" type="time" value={form.tob} onChange={(v) => set("tob", v)} />
-                    <Input id="b-place" label="Place of birth" value={form.place} onChange={(v) => set("place", v)} />
+                    <div className="sm:col-span-2">
+                      <Input id="b-place" label="Place of birth" value={form.place} onChange={(v) => set("place", v)} />
+                    </div>
                   </div>
                 )}
 
@@ -186,25 +222,26 @@ function Book() {
                         ["Date", form.date || "—"],
                         ["Time", form.slot || "—"],
                         ["Name", form.name || "—"],
+                        ["Phone", form.phone || "—"],
                         ["Born", `${form.dob || "—"} ${form.tob}`.trim()],
                       ].map(([k, v]) => (
-                        <div key={k} className="flex justify-between gap-4 border-b border-border/50 pb-2">
-                          <dt className="text-muted-foreground">{k}</dt>
-                          <dd className="text-right">{v}</dd>
+                        <div key={k} className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-4 border-b border-border/50 pb-2">
+                          <dt className="text-muted-foreground text-xs uppercase tracking-wider sm:normal-case sm:tracking-normal">{k}</dt>
+                          <dd className="sm:text-right font-medium sm:font-normal">{v}</dd>
                         </div>
                       ))}
                     </dl>
                   </div>
                 )}
 
-                <div className="mt-9 flex flex-wrap items-center gap-3">
-                  {step > 0 && (
+                <div className="mt-8 sm:mt-9 flex flex-wrap items-center justify-between gap-3">
+                  {step > 0 ? (
                     <LuxuryButton type="button" variant="ghost" size="sm" onClick={() => setStep((s) => s - 1)}>
                       Back
                     </LuxuryButton>
-                  )}
+                  ) : <div />}
                   <LuxuryButton type="submit">
-                    {step === STEPS.length - 1 ? "Request appointment" : "Continue"}
+                    {step === STEPS.length - 1 ? "Send via WhatsApp" : "Continue"}
                   </LuxuryButton>
                 </div>
               </form>

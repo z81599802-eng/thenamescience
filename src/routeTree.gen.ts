@@ -12,11 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as BookRouteImport } from './routes/book'
-import { Route as CalculatorsRouteImport } from './routes/calculators'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as FaqsRouteImport } from './routes/faqs'
-import { Route as NamelogyRouteImport } from './routes/namelogy'
-import { Route as NumerologyRouteImport } from './routes/numerology'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SuccessStoriesRouteImport } from './routes/success-stories'
@@ -39,11 +36,6 @@ const BookRoute = BookRouteImport.update({
   path: '/book',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CalculatorsRoute = CalculatorsRouteImport.update({
-  id: '/calculators',
-  path: '/calculators',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -52,16 +44,6 @@ const ContactRoute = ContactRouteImport.update({
 const FaqsRoute = FaqsRouteImport.update({
   id: '/faqs',
   path: '/faqs',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const NamelogyRoute = NamelogyRouteImport.update({
-  id: '/namelogy',
-  path: '/namelogy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const NumerologyRoute = NumerologyRouteImport.update({
-  id: '/numerology',
-  path: '/numerology',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -99,11 +81,8 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/book': typeof BookRoute
-  '/calculators': typeof CalculatorsRoute
   '/contact': typeof ContactRoute
   '/faqs': typeof FaqsRoute
-  '/namelogy': typeof NamelogyRoute
-  '/numerology': typeof NumerologyRoute
   '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRoute
   '/success-stories': typeof SuccessStoriesRoute
@@ -115,11 +94,8 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/book': typeof BookRoute
-  '/calculators': typeof CalculatorsRoute
   '/contact': typeof ContactRoute
   '/faqs': typeof FaqsRoute
-  '/namelogy': typeof NamelogyRoute
-  '/numerology': typeof NumerologyRoute
   '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRoute
   '/success-stories': typeof SuccessStoriesRoute
@@ -132,11 +108,8 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/book': typeof BookRoute
-  '/calculators': typeof CalculatorsRoute
   '/contact': typeof ContactRoute
   '/faqs': typeof FaqsRoute
-  '/namelogy': typeof NamelogyRoute
-  '/numerology': typeof NumerologyRoute
   '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRoute
   '/success-stories': typeof SuccessStoriesRoute
@@ -150,11 +123,8 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/book'
-    | '/calculators'
     | '/contact'
     | '/faqs'
-    | '/namelogy'
-    | '/numerology'
     | '/privacy'
     | '/services'
     | '/success-stories'
@@ -166,11 +136,8 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/book'
-    | '/calculators'
     | '/contact'
     | '/faqs'
-    | '/namelogy'
-    | '/numerology'
     | '/privacy'
     | '/services'
     | '/success-stories'
@@ -182,11 +149,8 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/book'
-    | '/calculators'
     | '/contact'
     | '/faqs'
-    | '/namelogy'
-    | '/numerology'
     | '/privacy'
     | '/services'
     | '/success-stories'
@@ -199,11 +163,8 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   BookRoute: typeof BookRoute
-  CalculatorsRoute: typeof CalculatorsRoute
   ContactRoute: typeof ContactRoute
   FaqsRoute: typeof FaqsRoute
-  NamelogyRoute: typeof NamelogyRoute
-  NumerologyRoute: typeof NumerologyRoute
   PrivacyRoute: typeof PrivacyRoute
   ServicesRoute: typeof ServicesRoute
   SuccessStoriesRoute: typeof SuccessStoriesRoute
@@ -235,13 +196,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BookRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/calculators': {
-      id: '/calculators'
-      path: '/calculators'
-      fullPath: '/calculators'
-      preLoaderRoute: typeof CalculatorsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -254,20 +208,6 @@ declare module '@tanstack/react-router' {
       path: '/faqs'
       fullPath: '/faqs'
       preLoaderRoute: typeof FaqsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/namelogy': {
-      id: '/namelogy'
-      path: '/namelogy'
-      fullPath: '/namelogy'
-      preLoaderRoute: typeof NamelogyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/numerology': {
-      id: '/numerology'
-      path: '/numerology'
-      fullPath: '/numerology'
-      preLoaderRoute: typeof NumerologyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -319,11 +259,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   BookRoute: BookRoute,
-  CalculatorsRoute: CalculatorsRoute,
   ContactRoute: ContactRoute,
   FaqsRoute: FaqsRoute,
-  NamelogyRoute: NamelogyRoute,
-  NumerologyRoute: NumerologyRoute,
   PrivacyRoute: PrivacyRoute,
   ServicesRoute: ServicesRoute,
   SuccessStoriesRoute: SuccessStoriesRoute,

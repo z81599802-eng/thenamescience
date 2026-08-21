@@ -58,9 +58,6 @@ export function Footer() {
           <FooterColumn
             title="Explore"
             links={[
-              { to: "/numerology", label: "Numerology" },
-              { to: "/namelogy", label: "Namelogy" },
-              { to: "/calculators", label: "Calculators" },
               { to: "/blog", label: "Journal" },
               { to: "/faqs", label: "FAQs" },
             ]}

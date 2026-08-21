@@ -2,7 +2,7 @@ import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { PageHero, Section } from "@/components/site/page-shell";
 import { GoldRule, LuxuryLink } from "@/components/luxury/ui";
-import { POSTS } from "@/lib/content";
+import { POSTS, STUDIO } from "@/lib/content";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
@@ -23,9 +23,9 @@ export const Route = createFileRoute("/blog/$slug")({
         { property: "og:title", content: loaderData.post.title },
         { property: "og:description", content: loaderData.post.excerpt },
         { property: "og:type", content: "article" },
-        { property: "og:url", content: `/blog/${params.slug}` },
+        { property: "og:url", content: `${STUDIO.url}/blog/${params.slug}` },
       ],
-      links: [{ rel: "canonical", href: `/blog/${params.slug}` }],
+      links: [{ rel: "canonical", href: `${STUDIO.url}/blog/${params.slug}` }],
       scripts: [
         {
           type: "application/ld+json",

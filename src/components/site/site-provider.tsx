@@ -22,9 +22,7 @@ export function SiteProvider({ children }: { children: ReactNode }) {
     const savedLang = window.localStorage.getItem("nn-lang") as Language | null;
     if (savedLang) setLangState(savedLang);
     const savedTheme = window.localStorage.getItem("nn-theme") as "light" | "dark" | null;
-    const initial =
-      savedTheme ??
-      (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    const initial = savedTheme ?? "light";
     setTheme(initial);
     document.documentElement.classList.toggle("dark", initial === "dark");
   }, []);

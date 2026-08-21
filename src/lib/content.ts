@@ -2,8 +2,9 @@ export const STUDIO = {
   name: "The Name Science Studio",
   short: "The Name Science",
   tagline: "Numerology & Namelogy Consultation Studio",
-  phone: "+91 98400 12345",
-  whatsapp: "919840012345",
+  url: "https://www.thenamescience.com",
+  phone: "+91 86829 54420",
+  whatsapp: "918682954420",
   email: "studio@thenamescience.com",
   address: "12 Ivory Lane, Alwarpet, Chennai 600018, India",
   hours: "Mon – Sat · 10:00 – 19:00 IST",
@@ -20,76 +21,103 @@ export type Service = {
 
 export const SERVICES: Service[] = [
   {
-    slug: "life-path-reading",
-    title: "Life Path Reading",
-    summary: "A full chart reading of your core numbers and the arc they describe.",
+    slug: "dob-analysis",
+    title: "DOB Analysis",
+    summary: "Complete Date of Birth chart calculation & life path guidance.",
     detail:
-      "We map your Life Path, Destiny, Soul, Personality and Birthday numbers into one narrative, then translate it into decisions you can act on this year.",
-    duration: "75 minutes",
+      "We map your core birth date numbers, Life Path, Destiny, and personal year cycles into actionable decisions for your life path.",
+    duration: "60 minutes",
     mode: "Online or in studio",
   },
   {
     slug: "name-correction",
-    title: "Name Correction",
-    summary: "Refine the spelling of your name so it vibrates with your birth chart.",
+    title: "Name Analysis & Correction",
+    summary: "Refine your name spelling so it vibrates harmoniously with your birth chart.",
     detail:
-      "Small changes in spelling shift the numeric value of a name. We test variants against your chart and recommend the calmest, most supportive option.",
+      "Subtle spelling shifts change the numeric total of your name. We test variant spellings against your chart to find the most supportive vibration.",
     duration: "60 minutes",
+    mode: "Online or in studio",
+  },
+  {
+    slug: "mobile-number",
+    title: "Mobile Number Selection",
+    summary: "Choose personal phone numbers aligned with your personal goals.",
+    detail:
+      "Your mobile number is repeated daily. We analyze candidates and recommend digit combinations that attract positive energy and growth.",
+    duration: "45 minutes",
+    mode: "Online or in studio",
+  },
+  {
+    slug: "vehicle-number",
+    title: "Vehicle Number Selection",
+    summary: "Select auspicious license plate digits for safety and smooth travel.",
+    detail:
+      "We evaluate candidate vehicle numbers against your birth chart to ensure safety, harmony, and protection on every journey.",
+    duration: "45 minutes",
+    mode: "Online or in studio",
+  },
+  {
+    slug: "atm-pin-password",
+    title: "ATM PIN & Password Vibrations",
+    summary: "Harmonize security PINs and daily financial codes.",
+    detail:
+      "Align your primary ATM PINs and daily transaction passcodes with favorable wealth digits to promote financial flow and protection.",
+    duration: "30 minutes",
+    mode: "Online",
+  },
+  {
+    slug: "bank-account-number",
+    title: "Bank Account Number Selection",
+    summary: "Choose bank account number totals for wealth compounding.",
+    detail:
+      "Evaluate account numbers for businesses or individuals to choose account digit totals that support prosperity and financial stability.",
+    duration: "45 minutes",
     mode: "Online or in studio",
   },
   {
     slug: "business-name",
-    title: "Business Name Analysis",
-    summary: "Name, brand and launch timing aligned with the founder's chart.",
+    title: "Business & Brand Naming",
+    summary: "Company, brand, domain and trading name alignment for founders.",
     detail:
-      "For new ventures and rebrands: we evaluate shortlisted names, domain variants and legal entity spellings, and recommend auspicious launch windows.",
+      "For new ventures and rebrands: we evaluate shortlisted business names, legal entities, domain options, and recommend auspicious launch windows.",
     duration: "90 minutes",
     mode: "Online or in studio",
   },
   {
-    slug: "baby-naming",
-    title: "Baby Naming",
-    summary: "A shortlist of beautiful names in harmony with your child's birth data.",
+    slug: "business-mobile-number",
+    title: "Business Mobile Number Selection",
+    summary: "Select commercial phone lines tailored for sales and client trust.",
     detail:
-      "We prepare 12 to 18 curated names with meanings, numeric values and pronunciation notes, refined together with the family.",
-    duration: "60 minutes",
+      "Commercial lines carry business energy. We test business contact numbers against founder charts and industry sector temperaments.",
+    duration: "45 minutes",
     mode: "Online or in studio",
   },
   {
-    slug: "relationship-compatibility",
-    title: "Relationship Compatibility",
-    summary: "Understand the rhythm between two charts before the big decisions.",
+    slug: "passwords-security",
+    title: "Security Passwords & Passcodes",
+    summary: "Numeric selection for digital security codes and vault passcodes.",
     detail:
-      "A comparative reading of both charts covering communication, finances, family patterns and the years ahead.",
-    duration: "75 minutes",
+      "Practical guidance on personal and corporate security passcode totals for positive resonance and peace of mind.",
+    duration: "30 minutes",
+    mode: "Online",
+  },
+  {
+    slug: "baby-naming",
+    title: "Baby Naming Consultation",
+    summary: "A shortlist of beautiful, harmonious names for your child.",
+    detail:
+      "We prepare curated names with meanings, numeric values, and pronunciation notes, fully aligned with your child's birth date.",
+    duration: "60 minutes",
     mode: "Online or in studio",
   },
   {
     slug: "lucky-number-consultation",
-    title: "Lucky Number Consultation",
-    summary: "Numbers, colours and dates chosen for the season you are in.",
+    title: "Lucky Number & Date Consultation",
+    summary: "Lucky numbers, colors, dates and house numbers for your season.",
     detail:
-      "Practical guidance for mobile numbers, vehicle numbers, house numbers, signing dates and colour palettes.",
+      "Comprehensive analysis for personal lucky digits, apartment/house numbers, signing dates, and favorable color palettes.",
     duration: "45 minutes",
-    mode: "Online",
-  },
-  {
-    slug: "career-guidance",
-    title: "Career Guidance",
-    summary: "Where your numbers want your work to go next.",
-    detail:
-      "We look at Expression and Destiny numbers alongside your personal year to identify roles, sectors and timing.",
-    duration: "60 minutes",
     mode: "Online or in studio",
-  },
-  {
-    slug: "business-growth",
-    title: "Business Growth Advisory",
-    summary: "Quarterly numeric advisory for founders and leadership teams.",
-    detail:
-      "An ongoing engagement: launch dates, hiring windows, partnership checks and brand naming for every new product line.",
-    duration: "Retainer",
-    mode: "Online",
   },
 ];
 
@@ -133,15 +161,15 @@ export const PACKAGES = [
 ];
 
 export const STATS = [
-  { value: 18, suffix: "+", label: "Years of practice" },
-  { value: 12400, suffix: "+", label: "Consultations completed" },
-  { value: 41, suffix: "", label: "Countries served" },
+  { value: 20, suffix: "+", label: "Years of practice" },
+  { value: 2000, suffix: "+", label: "Consultations completed" },
+  { value: 99, suffix: "%", label: "Client satisfaction" },
   { value: 96, suffix: "%", label: "Clients who return" },
 ];
 
 export const WHY_US = [
   {
-    title: "Eighteen years of practice",
+    title: "Twenty years of practice",
     body: "A single practitioner-led studio. Every chart is read by hand, never generated by a template.",
   },
   {
@@ -150,7 +178,7 @@ export const WHY_US = [
   },
   {
     title: "Thousands of clients",
-    body: "Families, founders, artists and executives across 41 countries, many returning for a decade.",
+    body: "Families, founders, artists and executives, many returning for a decade.",
   },
   {
     title: "Personal guidance",

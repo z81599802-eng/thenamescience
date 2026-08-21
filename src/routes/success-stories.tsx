@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, Section } from "@/components/site/page-shell";
 import { GlassCard, GoldRule, LuxuryLink, SectionHeading } from "@/components/luxury/ui";
 import { Reveal } from "@/components/motion/primitives";
-import { JOURNEY, TESTIMONIALS } from "@/lib/content";
+import { JOURNEY, STUDIO, TESTIMONIALS } from "@/lib/content";
 
 export const Route = createFileRoute("/success-stories")({
   head: () => ({
@@ -18,9 +18,9 @@ export const Route = createFileRoute("/success-stories")({
         property: "og:description",
         content: "Quiet changes with measurable outcomes, told by the clients themselves.",
       },
-      { property: "og:url", content: "/success-stories" },
+      { property: "og:url", content: `${STUDIO.url}/success-stories` },
     ],
-    links: [{ rel: "canonical", href: "/success-stories" }],
+    links: [{ rel: "canonical", href: `${STUDIO.url}/success-stories` }],
   }),
   component: Stories,
 });
@@ -71,22 +71,24 @@ function Stories() {
 
       <Section muted>
         <SectionHeading eyebrow="The client journey" title="Five steps, every time" align="center" />
-        <ol className="relative mt-16 space-y-10 border-l border-border/70 pl-8">
-          {JOURNEY.map((j, i) => (
-            <Reveal key={j.step} delay={i * 0.06}>
-              <li className="relative">
+        <div className="mx-auto max-w-2xl">
+          <ol className="relative mt-16 ml-4 sm:ml-8 border-l-2 border-gold/40 pl-6 sm:pl-10 space-y-10">
+            {JOURNEY.map((j, i) => (
+              <li key={j.step} className="relative">
                 <span
                   aria-hidden="true"
-                  className="absolute -left-[2.35rem] top-1.5 grid h-5 w-5 place-items-center rounded-full border border-gold/70 bg-background text-[0.6rem] text-gold"
+                  className="absolute -left-[1.55rem] sm:-left-[2.55rem] top-0 grid h-7 w-7 sm:h-8 sm:w-8 -translate-x-1/2 place-items-center rounded-full border-2 border-gold bg-background font-display text-xs text-gold shadow-md"
                 >
                   {i + 1}
                 </span>
-                <h2 className="text-xl">{j.step}</h2>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{j.body}</p>
+                <Reveal delay={i * 0.06}>
+                  <h3 className="text-xl font-medium">{j.step}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{j.body}</p>
+                </Reveal>
               </li>
-            </Reveal>
-          ))}
-        </ol>
+            ))}
+          </ol>
+        </div>
         <div className="mt-14 text-center">
           <LuxuryLink to="/book">Begin your own</LuxuryLink>
         </div>

@@ -7,7 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { FAQS } from "@/lib/content";
+import { FAQS, STUDIO } from "@/lib/content";
 
 export const Route = createFileRoute("/faqs")({
   head: () => ({
@@ -20,9 +20,9 @@ export const Route = createFileRoute("/faqs")({
       },
       { property: "og:title", content: "Frequently Asked Questions — The Name Science" },
       { property: "og:description", content: "Nine common questions about working with the studio." },
-      { property: "og:url", content: "/faqs" },
+      { property: "og:url", content: `${STUDIO.url}/faqs` },
     ],
-    links: [{ rel: "canonical", href: "/faqs" }],
+    links: [{ rel: "canonical", href: `${STUDIO.url}/faqs` }],
     scripts: [
       {
         type: "application/ld+json",

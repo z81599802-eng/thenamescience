@@ -1,9 +1,8 @@
 "use client";
 
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Menu, Moon, Sun, Search, Globe, X } from "lucide-react";
+import { Menu, Moon, Sun, Search, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { LANGUAGES } from "@/lib/i18n";
 import { useSite } from "@/components/site/site-provider";
 import { LuxuryLink } from "@/components/luxury/ui";
 import { cn } from "@/lib/utils";
@@ -14,9 +13,6 @@ const NAV = [
   { to: "/", key: "nav.home" },
   { to: "/about", key: "nav.about" },
   { to: "/services", key: "nav.services" },
-  { to: "/numerology", key: "nav.numerology" },
-  { to: "/namelogy", key: "nav.namelogy" },
-  { to: "/calculators", key: "nav.calculators" },
   { to: "/success-stories", key: "nav.stories" },
   { to: "/blog", key: "nav.blog" },
   { to: "/faqs", key: "nav.faqs" },
@@ -24,7 +20,7 @@ const NAV = [
 ] as const;
 
 export function Navbar() {
-  const { t, lang, setLang, theme, toggleTheme } = useSite();
+  const { t, theme, toggleTheme } = useSite();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -63,8 +59,8 @@ export function Navbar() {
         scrolled ? "glass-panel border-b border-border/60 py-3" : "py-6",
       )}
     >
-      <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 sm:px-8">
-        <Link to="/" className="flex min-w-0 items-center" aria-label={STUDIO.name}>
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 sm:px-8">
+        <Link to="/" className="flex min-w-0 items-center shrink-0" aria-label={STUDIO.name}>
           <img
             src="/logo.png"
             alt={STUDIO.name}
@@ -72,15 +68,15 @@ export function Navbar() {
           />
         </Link>
 
-        <div className="flex items-center gap-1.5">
-          <nav className="hidden items-center gap-1 xl:flex">
-            {NAV.slice(0, 7).map((item) => (
+        <div className="flex items-center gap-2 md:gap-3">
+          <nav className="hidden items-center gap-1 lg:flex">
+            {NAV.map((item) => (
               <Link
                 key={item.to}
                 to={item.to}
                 activeOptions={{ exact: item.to === "/" }}
                 className="rounded-full px-3 py-2 text-[0.78rem] tracking-wide text-muted-foreground transition-colors hover:text-foreground"
-                activeProps={{ className: "text-foreground" }}
+                activeProps={{ className: "text-foreground font-medium" }}
               >
                 {t(item.key)}
               </Link>
@@ -95,28 +91,6 @@ export function Navbar() {
             <Search className="h-4 w-4" />
           </button>
 
-          <div className="relative hidden sm:block">
-            <label className="sr-only" htmlFor="lang-select">
-              {t("common.language")}
-            </label>
-            <Globe
-              aria-hidden="true"
-              className="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground"
-            />
-            <select
-              id="lang-select"
-              value={lang}
-              onChange={(e) => setLang(e.target.value as (typeof LANGUAGES)[number]["code"])}
-              className="appearance-none rounded-full border border-border/70 bg-transparent py-2 pl-8 pr-3 text-[0.72rem] uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            >
-              {LANGUAGES.map((l) => (
-                <option key={l.code} value={l.code}>
-                  {l.native}
-                </option>
-              ))}
-            </select>
-          </div>
-
           <button
             onClick={toggleTheme}
             aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
@@ -125,7 +99,7 @@ export function Navbar() {
             {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
 
-          <div className="hidden lg:block">
+          <div className="hidden sm:block">
             <LuxuryLink to="/book" size="sm">
               {t("cta.book")}
             </LuxuryLink>
@@ -135,7 +109,7 @@ export function Navbar() {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-border/70 xl:hidden"
+            className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-border/70 lg:hidden"
           >
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
@@ -172,7 +146,7 @@ export function Navbar() {
       )}
 
       {open && (
-        <nav className="mx-auto mt-3 max-w-7xl px-5 sm:px-8 xl:hidden">
+        <nav className="mx-auto mt-3 max-w-7xl px-5 sm:px-8 lg:hidden">
           <div className="glass-panel rounded-lg p-4 shadow-luxe">
             <ul className="grid gap-1 sm:grid-cols-2">
               {NAV.map((item) => (

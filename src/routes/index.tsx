@@ -12,7 +12,7 @@ import {
 } from "@/components/luxury/ui";
 import { CountUp, Parallax, Reveal, StaggerText } from "@/components/motion/primitives";
 import { NUMBER_PROFILES, profileFor } from "@/lib/numerology";
-import { SERVICES, STATS, TESTIMONIALS, WHY_US } from "@/lib/content";
+import { SERVICES, STATS, STUDIO, TESTIMONIALS, WHY_US } from "@/lib/content";
 import { useState } from "react";
 
 export const Route = createFileRoute("/")({
@@ -22,7 +22,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Discover your life path, destiny number and name vibration with a premium numerology and namelogy studio. Free calculators and personal consultations.",
+          "Discover your life path, destiny number and name vibration with a premium numerology and namelogy studio. Personal consultations and handcrafted chart preparation.",
       },
       { property: "og:title", content: "The Name Science — Numerology & Namelogy Consultation Studio" },
       {
@@ -30,21 +30,25 @@ export const Route = createFileRoute("/")({
         content:
           "Unlock the power hidden within your numbers. Life path readings, name correction, business and baby naming.",
       },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: `${STUDIO.url}/` },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: `${STUDIO.url}/` }],
   }),
   component: Home,
 });
 
 const FEATURED_CALCULATORS = [
-  "Life Path",
-  "Destiny Number",
-  "Name Number",
-  "Business Name",
-  "Mobile Number",
-  "Lucky Colour",
-  "Lucky Day",
+  "DOB Analysis",
+  "Name Analysis & Correction",
+  "Mobile Number Selection",
+  "Vehicle Number Selection",
+  "ATM PIN & Password Vibrations",
+  "Bank Account Number Selection",
+  "Business & Brand Naming",
+  "Business Mobile Number Selection",
+  "Security Passwords & Passcodes",
+  "Baby Naming Consultation",
+  "Lucky Number & Date Consultation",
 ];
 
 function Home() {
@@ -69,7 +73,7 @@ function Hero() {
       <div className="relative mx-auto grid w-full max-w-7xl gap-16 px-5 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div>
           <Reveal>
-            <p className="eyebrow">Numerology · Namelogy · Since 2008</p>
+            <p className="eyebrow">Numerology · Namelogy · 20+ Years</p>
           </Reveal>
           <h1 className="mt-7 font-display text-[2.6rem] leading-[1.06] text-balance-luxe sm:text-6xl lg:text-[4.2rem]">
             <StaggerText text="Unlock the Power Hidden Within Your Numbers" />
@@ -83,9 +87,6 @@ function Hero() {
           <Reveal delay={0.5}>
             <div className="mt-10 flex flex-wrap items-center gap-3">
               <LuxuryLink to="/book">Book Consultation</LuxuryLink>
-              <LuxuryLink to="/calculators" variant="outline">
-                Calculate Your Number
-              </LuxuryLink>
             </div>
           </Reveal>
           <Reveal delay={0.65}>
@@ -175,8 +176,8 @@ function WhatIsNumerology() {
               ))}
             </div>
             <div className="mt-10">
-              <LuxuryLink to="/numerology" variant="ghost" size="sm">
-                Explore the numbers <ArrowRight className="h-3.5 w-3.5" />
+              <LuxuryLink to="/about" variant="ghost" size="sm">
+                Learn about the studio <ArrowRight className="h-3.5 w-3.5" />
               </LuxuryLink>
             </div>
           </Reveal>
@@ -192,12 +193,12 @@ function FeaturedServices() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
           eyebrow="Consultations"
-          title="Six ways the studio works with you"
+          title="Eleven ways the studio works with you"
           description="Each consultation is prepared by hand before you arrive and documented afterwards."
         />
         <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {SERVICES.slice(0, 6).map((s, i) => (
-            <Reveal key={s.slug} delay={i * 0.06}>
+          {SERVICES.map((s, i) => (
+            <Reveal key={s.slug} delay={i * 0.04}>
               <GlassCard className="flex h-full flex-col">
                 <p className="font-display text-4xl text-gold/70">
                   {String(i + 1).padStart(2, "0")}
@@ -217,7 +218,7 @@ function FeaturedServices() {
         <Reveal>
           <div className="mt-12">
             <LuxuryLink to="/services" variant="outline" size="sm">
-              All services & packages
+              All services
             </LuxuryLink>
           </div>
         </Reveal>
@@ -232,17 +233,17 @@ function NumberShowcase() {
   const keys = [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 22, 33];
 
   return (
-    <section className="relative overflow-hidden bg-secondary/40 py-28">
+    <section className="relative overflow-hidden bg-secondary/40 py-20 sm:py-28">
       <ConstellationLines className="opacity-40" />
-      <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-8">
         <SectionHeading
           eyebrow="The vibrations"
           title="Nine temperaments and three master numbers"
           description="Hover or tap a number to read its character."
           align="center"
         />
-        <div className="mt-16 grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-center">
-          <div className="grid grid-cols-4 gap-3 sm:grid-cols-6 lg:grid-cols-4">
+        <div className="mt-12 sm:mt-16 grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+          <div className="grid grid-cols-4 gap-2.5 sm:grid-cols-6 sm:gap-3 lg:grid-cols-4">
             {keys.map((n) => (
               <button
                 key={n}
@@ -257,7 +258,7 @@ function NumberShowcase() {
                     : "border-border/70 hover:border-gold/60 hover:bg-gold/8"
                 }`}
               >
-                <span className="grid h-full w-full place-items-center font-display text-2xl transition-transform duration-500 group-hover:scale-110">
+                <span className="grid h-full w-full place-items-center font-display text-xl sm:text-2xl transition-transform duration-500 group-hover:scale-110">
                   {n}
                 </span>
               </button>
@@ -265,29 +266,31 @@ function NumberShowcase() {
           </div>
 
           <Reveal key={active}>
-            <GlassCard hover={false} className="p-10">
-              <div className="flex flex-wrap items-center gap-8">
-                <NumberDial value={profile.number} label={profile.keyword} size={168} percent={72} />
+            <GlassCard hover={false} className="p-5 sm:p-8 md:p-10">
+              <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-center sm:gap-8 text-center sm:text-left">
+                <div className="shrink-0">
+                  <NumberDial value={profile.number} label={profile.keyword} size={140} percent={72} />
+                </div>
                 <div className="min-w-0 flex-1">
                   <p className="eyebrow">{profile.keyword}</p>
-                  <h3 className="mt-3 text-3xl">{profile.title}</h3>
-                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                  <h3 className="mt-2 text-2xl sm:text-3xl font-medium">{profile.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                     {profile.summary}
                   </p>
                 </div>
               </div>
-              <GoldRule className="mt-8" />
-              <div className="mt-6 flex flex-wrap gap-2">
+              <GoldRule className="mt-6 sm:mt-8" />
+              <div className="mt-6 flex flex-wrap justify-center sm:justify-start gap-2">
                 {profile.strengths.map((s) => (
                   <span
                     key={s}
-                    className="rounded-full border border-gold/40 px-4 py-1.5 text-[0.68rem] uppercase tracking-[0.14em] text-muted-foreground"
+                    className="rounded-full border border-gold/40 px-3 py-1 sm:px-4 sm:py-1.5 text-[0.65rem] sm:text-[0.68rem] uppercase tracking-[0.14em] text-muted-foreground"
                   >
                     {s}
                   </span>
                 ))}
               </div>
-              <p className="mt-6 text-sm italic text-emerald">{profile.caution}</p>
+              <p className="mt-5 text-sm italic text-emerald text-center sm:text-left">{profile.caution}</p>
             </GlassCard>
           </Reveal>
         </div>
@@ -322,9 +325,9 @@ function Calculators() {
     <section className="relative overflow-hidden py-28">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
-          eyebrow="Free calculators"
+          eyebrow="Numeric Analysis"
           title="Begin with a number of your own"
-          description="Seven of our twelve calculators, all instant and private — nothing leaves your browser."
+          description="Eleven core calculations prepared by hand during your consultation for deep life clarity."
         />
         <div className="mt-14 overflow-hidden">
           <div className="flex w-max animate-marquee gap-4">
@@ -334,7 +337,7 @@ function Calculators() {
                 className="glass-panel flex items-center gap-4 rounded-full px-8 py-5"
               >
                 <span className="font-display text-2xl text-gold">
-                  {String((i % 9) + 1)}
+                  {String((i % 11) + 1)}
                 </span>
                 <span className="whitespace-nowrap text-sm tracking-wide">{c}</span>
               </div>
@@ -343,7 +346,7 @@ function Calculators() {
         </div>
         <Reveal>
           <div className="mt-12">
-            <LuxuryLink to="/calculators">Open the calculators</LuxuryLink>
+            <LuxuryLink to="/book">Book consultation</LuxuryLink>
           </div>
         </Reveal>
       </div>

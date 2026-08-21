@@ -9,13 +9,13 @@ export const Route = createFileRoute("/privacy")({
       {
         name: "description",
         content:
-          "How the studio handles birth details, consultation notes, calculator inputs, cookies and your right to deletion.",
+          "How the studio handles birth details, consultation notes, cookies and your right to deletion.",
       },
       { property: "og:title", content: "Privacy Policy — The Name Science" },
       { property: "og:description", content: "What we store, why, and for how long." },
-      { property: "og:url", content: "/privacy" },
+      { property: "og:url", content: `${STUDIO.url}/privacy` },
     ],
-    links: [{ rel: "canonical", href: "/privacy" }],
+    links: [{ rel: "canonical", href: `${STUDIO.url}/privacy` }],
   }),
   component: Privacy,
 });
@@ -23,7 +23,7 @@ export const Route = createFileRoute("/privacy")({
 const SECTIONS = [
   {
     h: "What we collect",
-    p: "Only what a consultation requires: your name, contact details, date, time and place of birth, and the notes you choose to share. Calculator inputs on this website are processed entirely in your browser and are never transmitted to us.",
+    p: "Only what a consultation requires: your name, contact details, date, time and place of birth, and the notes you choose to share.",
   },
   {
     h: "How it is used",
