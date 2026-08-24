@@ -82,7 +82,10 @@ export function reduce(n: number, keepMaster = true): number {
 }
 
 export function letters(name: string): string[] {
-  return name.toLowerCase().replace(/[^a-z]/g, "").split("");
+  return name
+    .toLowerCase()
+    .replace(/[^a-z]/g, "")
+    .split("");
 }
 
 export function nameTotal(name: string, system: "pythagorean" | "chaldean" = "pythagorean") {

@@ -35,9 +35,9 @@ const sizes = {
 };
 
 const variants = {
-  gold: "bg-gold text-charcoal hover:brightness-105 shadow-luxe",
+  gold: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-luxe",
   emerald: "bg-primary text-primary-foreground hover:brightness-110 shadow-luxe",
-  outline: "border border-gold/60 text-foreground hover:bg-gold/12",
+  outline: "border border-primary/40 text-foreground hover:bg-primary/10",
   ghost: "text-foreground/80 hover:text-foreground",
 };
 
@@ -151,7 +151,7 @@ export function NumberDial({
           cy="60"
           r={r}
           fill="none"
-          stroke="var(--gold)"
+          stroke="var(--primary)"
           strokeWidth="2.5"
           strokeLinecap="round"
           strokeDasharray={circ}
@@ -163,9 +163,9 @@ export function NumberDial({
           cy="60"
           r={r - 10}
           fill="none"
-          stroke="var(--emerald)"
-          strokeWidth="0.5"
-          opacity="0.4"
+          stroke="var(--gold)"
+          strokeWidth="0.8"
+          opacity="0.6"
         />
       </svg>
       <div className="absolute inset-0 grid place-items-center text-center">

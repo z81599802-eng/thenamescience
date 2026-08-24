@@ -239,7 +239,10 @@ export const JOURNEY = [
     body: "The studio prepares your full numeric chart by hand before you arrive.",
   },
   { step: "Consultation", body: "A calm, unhurried conversation — online or in studio." },
-  { step: "Written report", body: "Your chart, recommendations and dates, beautifully documented." },
+  {
+    step: "Written report",
+    body: "Your chart, recommendations and dates, beautifully documented.",
+  },
   { step: "Follow through", body: "Support while you implement the changes you decided on." },
 ];
 

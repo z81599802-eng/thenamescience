@@ -47,9 +47,9 @@ export function ScrollProgress() {
   }, []);
 
   return (
-    <div aria-hidden="true" className="fixed inset-x-0 top-0 z-[60] h-[2px] bg-transparent">
+    <div aria-hidden="true" className="fixed inset-x-0 top-0 z-[60] h-[3px] bg-transparent">
       <div
-        className="h-full bg-gold transition-[width] duration-150 ease-out"
+        className="h-full bg-primary transition-[width] duration-150 ease-out"
         style={{ width: `${progress}%` }}
       />
     </div>
@@ -73,12 +73,12 @@ export function CursorGlow() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none fixed z-[55] h-[380px] w-[380px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-60 mix-blend-multiply transition-transform duration-300 ease-out dark:mix-blend-screen"
+      className="pointer-events-none fixed z-[55] h-[380px] w-[380px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-50 mix-blend-multiply transition-transform duration-300 ease-out"
       style={{
         left: pos.x,
         top: pos.y,
         background:
-          "radial-gradient(circle, color-mix(in oklab, var(--gold) 20%, transparent), transparent 65%)",
+          "radial-gradient(circle, color-mix(in oklab, var(--primary) 16%, transparent), transparent 65%)",
       }}
     />
   );
@@ -101,7 +101,7 @@ export function FloatingActions() {
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         aria-label="Back to top"
         className={cn(
-          "grid h-11 w-11 place-items-center rounded-full border border-gold/50 bg-card/90 text-foreground shadow-luxe backdrop-blur transition-all duration-500",
+          "grid h-11 w-11 place-items-center rounded-full border border-primary/30 bg-card/95 text-foreground shadow-luxe backdrop-blur transition-all duration-500 hover:border-primary/60",
           visible ? "opacity-100" : "pointer-events-none translate-y-3 opacity-0",
         )}
       >
@@ -113,7 +113,7 @@ export function FloatingActions() {
         target="_blank"
         rel="noreferrer"
         aria-label="Chat with the studio on WhatsApp"
-        className="grid h-12 w-12 place-items-center rounded-full bg-emerald-600 text-white shadow-luxe transition-transform duration-500 hover:scale-105"
+        className="grid h-12 w-12 place-items-center rounded-full bg-[#25D366] text-white shadow-luxe transition-transform duration-500 hover:scale-105"
       >
         <MessageCircle className="h-5 w-5" />
       </a>
@@ -121,7 +121,7 @@ export function FloatingActions() {
       {pathname !== "/book" && (
         <Link
           to="/book"
-          className="group inline-flex items-center gap-2 rounded-full bg-gold px-5 py-3 text-[0.7rem] font-medium uppercase tracking-[0.18em] text-charcoal shadow-luxe transition-transform duration-500 hover:scale-[1.03]"
+          className="group inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-[0.7rem] font-medium uppercase tracking-[0.18em] text-primary-foreground shadow-luxe transition-transform duration-500 hover:scale-[1.03]"
         >
           <CalendarDays className="h-4 w-4" />
           <span className="hidden sm:inline">Book Consultation</span>
@@ -213,7 +213,7 @@ export function LoadingCurtain() {
             cy="50"
             r="34"
             fill="none"
-            stroke="var(--gold)"
+            stroke="var(--primary)"
             strokeWidth="1.4"
             strokeLinecap="round"
             strokeDasharray="214"

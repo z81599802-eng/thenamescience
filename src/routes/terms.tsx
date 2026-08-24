@@ -12,7 +12,10 @@ export const Route = createFileRoute("/terms")({
           "Terms covering consultations, payments, rescheduling, the nature of guidance offered and intellectual property.",
       },
       { property: "og:title", content: "Terms of Service — The Name Science" },
-      { property: "og:description", content: "The terms under which the studio works with clients." },
+      {
+        property: "og:description",
+        content: "The terms under which the studio works with clients.",
+      },
       { property: "og:url", content: `${STUDIO.url}/terms` },
     ],
     links: [{ rel: "canonical", href: `${STUDIO.url}/terms` }],
@@ -46,7 +49,11 @@ const SECTIONS = [
 function Terms() {
   return (
     <>
-      <PageHero eyebrow="Terms" title="How the studio works with you" description="Last updated 1 July 2026." />
+      <PageHero
+        eyebrow="Terms"
+        title="How the studio works with you"
+        description="Last updated 1 July 2026."
+      />
       <Section>
         <div className="mx-auto max-w-2xl space-y-10">
           {SECTIONS.map((s) => (

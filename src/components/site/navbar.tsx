@@ -1,7 +1,7 @@
 "use client";
 
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Menu, Moon, Sun, Search, X } from "lucide-react";
+import { Menu, Search, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useSite } from "@/components/site/site-provider";
 import { LuxuryLink } from "@/components/luxury/ui";
@@ -20,7 +20,7 @@ const NAV = [
 ] as const;
 
 export function Navbar() {
-  const { t, theme, toggleTheme } = useSite();
+  const { t } = useSite();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -86,17 +86,9 @@ export function Navbar() {
           <button
             onClick={() => setSearchOpen((v) => !v)}
             aria-label="Search the site"
-            className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-border/70 text-muted-foreground transition-colors hover:text-foreground"
+            className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-border/70 text-muted-foreground transition-colors hover:text-foreground hover:border-primary/40"
           >
             <Search className="h-4 w-4" />
-          </button>
-
-          <button
-            onClick={toggleTheme}
-            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-            className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-border/70 text-muted-foreground transition-colors hover:text-foreground"
-          >
-            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
 
           <div className="hidden sm:block">

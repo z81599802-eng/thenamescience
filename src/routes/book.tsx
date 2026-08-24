@@ -68,7 +68,9 @@ function Book() {
                 >
                   <span
                     className={`grid h-7 w-7 sm:h-8 sm:w-8 shrink-0 place-items-center rounded-full border text-xs font-display transition-colors ${
-                      i <= step ? "border-gold bg-gold/15 text-gold shadow-sm" : "border-border/70 text-muted-foreground"
+                      i <= step
+                        ? "border-gold bg-gold/15 text-gold shadow-sm"
+                        : "border-border/70 text-muted-foreground"
                     }`}
                   >
                     {i + 1}
@@ -87,10 +89,13 @@ function Book() {
                 <div className="flex justify-center">
                   <NumberDial value="✓" label="Requested" size={140} percent={100} />
                 </div>
-                <h2 className="mt-6 text-xl sm:text-2xl font-medium">Your appointment request is ready!</h2>
+                <h2 className="mt-6 text-xl sm:text-2xl font-medium">
+                  Your appointment request is ready!
+                </h2>
                 <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
                   {form.service} · {form.mode} · {form.date || "date to confirm"}{" "}
-                  {form.slot && `at ${form.slot}`}. Tap below to send your booking directly to the studio via WhatsApp.
+                  {form.slot && `at ${form.slot}`}. Tap below to send your booking directly to the
+                  studio via WhatsApp.
                 </p>
                 <div className="mt-6 flex flex-wrap justify-center gap-3">
                   <a
@@ -181,12 +186,43 @@ function Book() {
 
                 {step === 2 && (
                   <div className="grid gap-5 sm:grid-cols-2">
-                    <Input id="b-name" label="Full name" value={form.name} onChange={(v) => set("name", v)} required />
-                    <Input id="b-phone" label="Phone number" type="tel" value={form.phone} onChange={(v) => set("phone", v)} required />
-                    <Input id="b-dob" label="Date of birth" type="date" value={form.dob} onChange={(v) => set("dob", v)} required />
-                    <Input id="b-tob" label="Time of birth" type="time" value={form.tob} onChange={(v) => set("tob", v)} />
+                    <Input
+                      id="b-name"
+                      label="Full name"
+                      value={form.name}
+                      onChange={(v) => set("name", v)}
+                      required
+                    />
+                    <Input
+                      id="b-phone"
+                      label="Phone number"
+                      type="tel"
+                      value={form.phone}
+                      onChange={(v) => set("phone", v)}
+                      required
+                    />
+                    <Input
+                      id="b-dob"
+                      label="Date of birth"
+                      type="date"
+                      value={form.dob}
+                      onChange={(v) => set("dob", v)}
+                      required
+                    />
+                    <Input
+                      id="b-tob"
+                      label="Time of birth"
+                      type="time"
+                      value={form.tob}
+                      onChange={(v) => set("tob", v)}
+                    />
                     <div className="sm:col-span-2">
-                      <Input id="b-place" label="Place of birth" value={form.place} onChange={(v) => set("place", v)} />
+                      <Input
+                        id="b-place"
+                        label="Place of birth"
+                        value={form.place}
+                        onChange={(v) => set("place", v)}
+                      />
                     </div>
                   </div>
                 )}
@@ -225,8 +261,13 @@ function Book() {
                         ["Phone", form.phone || "—"],
                         ["Born", `${form.dob || "—"} ${form.tob}`.trim()],
                       ].map(([k, v]) => (
-                        <div key={k} className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-4 border-b border-border/50 pb-2">
-                          <dt className="text-muted-foreground text-xs uppercase tracking-wider sm:normal-case sm:tracking-normal">{k}</dt>
+                        <div
+                          key={k}
+                          className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-4 border-b border-border/50 pb-2"
+                        >
+                          <dt className="text-muted-foreground text-xs uppercase tracking-wider sm:normal-case sm:tracking-normal">
+                            {k}
+                          </dt>
                           <dd className="sm:text-right font-medium sm:font-normal">{v}</dd>
                         </div>
                       ))}
@@ -236,10 +277,17 @@ function Book() {
 
                 <div className="mt-8 sm:mt-9 flex flex-wrap items-center justify-between gap-3">
                   {step > 0 ? (
-                    <LuxuryButton type="button" variant="ghost" size="sm" onClick={() => setStep((s) => s - 1)}>
+                    <LuxuryButton
+                      type="button"
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => setStep((s) => s - 1)}
+                    >
                       Back
                     </LuxuryButton>
-                  ) : <div />}
+                  ) : (
+                    <div />
+                  )}
                   <LuxuryButton type="submit">
                     {step === STEPS.length - 1 ? "Send via WhatsApp" : "Continue"}
                   </LuxuryButton>
@@ -270,7 +318,10 @@ function Input({
 }) {
   return (
     <div>
-      <label htmlFor={id} className="block text-[0.68rem] uppercase tracking-[0.16em] text-muted-foreground">
+      <label
+        htmlFor={id}
+        className="block text-[0.68rem] uppercase tracking-[0.16em] text-muted-foreground"
+      >
         {label}
       </label>
       <input
@@ -300,7 +351,10 @@ function Select({
 }) {
   return (
     <div>
-      <label htmlFor={id} className="block text-[0.68rem] uppercase tracking-[0.16em] text-muted-foreground">
+      <label
+        htmlFor={id}
+        className="block text-[0.68rem] uppercase tracking-[0.16em] text-muted-foreground"
+      >
         {label}
       </label>
       <select

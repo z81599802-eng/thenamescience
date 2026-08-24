@@ -16,15 +16,11 @@ const SiteContext = createContext<Ctx | null>(null);
 
 export function SiteProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Language>("en");
-  const [theme, setTheme] = useState<"light" | "dark">("light");
 
   useEffect(() => {
     const savedLang = window.localStorage.getItem("nn-lang") as Language | null;
     if (savedLang) setLangState(savedLang);
-    const savedTheme = window.localStorage.getItem("nn-theme") as "light" | "dark" | null;
-    const initial = savedTheme ?? "light";
-    setTheme(initial);
-    document.documentElement.classList.toggle("dark", initial === "dark");
+    document.documentElement.classList.remove("dark");
   }, []);
 
   const setLang = useCallback((l: Language) => {
@@ -34,17 +30,13 @@ export function SiteProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const toggleTheme = useCallback(() => {
-    setTheme((prev) => {
-      const next = prev === "dark" ? "light" : "dark";
-      document.documentElement.classList.toggle("dark", next === "dark");
-      window.localStorage.setItem("nn-theme", next);
-      return next;
-    });
+    // Light theme only mode requested by client
+    document.documentElement.classList.remove("dark");
   }, []);
 
   const value = useMemo<Ctx>(
-    () => ({ lang, setLang, t: (key: string) => translate(lang, key), theme, toggleTheme }),
-    [lang, setLang, theme, toggleTheme],
+    () => ({ lang, setLang, t: (key: string) => translate(lang, key), theme: "light", toggleTheme }),
+    [lang, setLang, toggleTheme],
   );
 
   return <SiteContext.Provider value={value}>{children}</SiteContext.Provider>;

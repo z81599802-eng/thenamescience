@@ -36,7 +36,7 @@ export function SacredGeometry({
             );
           })}
         </g>
-        <g stroke="var(--emerald)" strokeWidth="0.35" opacity="0.32">
+        <g stroke="var(--primary)" strokeWidth="0.35" opacity="0.32">
           {Array.from({ length: 12 }).map((_, i) => {
             const a = (Math.PI / 6) * i;
             return (
@@ -60,15 +60,15 @@ export function SacredGeometry({
         >
           <polygon
             points="200,60 340,300 60,300"
-            stroke="var(--bronze)"
+            stroke="var(--primary)"
             strokeWidth="0.5"
-            opacity="0.5"
+            opacity="0.4"
           />
           <polygon
             points="200,340 60,100 340,100"
-            stroke="var(--bronze)"
+            stroke="var(--primary)"
             strokeWidth="0.5"
-            opacity="0.35"
+            opacity="0.3"
           />
           <rect x="90" y="90" width="220" height="220" stroke="var(--gold)" strokeWidth="0.4" opacity="0.4" />
         </svg>
@@ -96,7 +96,7 @@ export function FloatingParticles({ count = 16 }: { count?: number }) {
       {seeds.map(({ x, y, size, delay, dur, i }) => (
         <span
           key={i}
-          className="absolute rounded-full bg-gold/50"
+          className="absolute rounded-full bg-primary/35"
           style={{
             left: `${x}%`,
             top: `${y}%`,

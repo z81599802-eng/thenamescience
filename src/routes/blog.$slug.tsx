@@ -63,7 +63,7 @@ function Article() {
     <>
       <div
         aria-hidden="true"
-        className="fixed inset-x-0 top-0 z-[61] h-[3px] bg-emerald/70"
+        className="fixed inset-x-0 top-0 z-[61] h-[3px] bg-primary/80"
         style={{ width: `${progress}%` }}
       />
       <PageHero eyebrow={post.category} title={post.title} description={post.excerpt} />

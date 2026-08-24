@@ -19,7 +19,10 @@ export const Route = createFileRoute("/faqs")({
           "Answers on numerology and religion, what details a consultation needs, name changes, timelines, online sessions, languages and privacy.",
       },
       { property: "og:title", content: "Frequently Asked Questions — The Name Science" },
-      { property: "og:description", content: "Nine common questions about working with the studio." },
+      {
+        property: "og:description",
+        content: "Nine common questions about working with the studio.",
+      },
       { property: "og:url", content: `${STUDIO.url}/faqs` },
     ],
     links: [{ rel: "canonical", href: `${STUDIO.url}/faqs` }],

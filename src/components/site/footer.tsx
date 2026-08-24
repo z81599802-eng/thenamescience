@@ -24,17 +24,17 @@ export function Footer() {
             </p>
             <ul className="mt-8 space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-3">
-                <MapPin aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+                <MapPin aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                 <span>{STUDIO.address}</span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone aria-hidden="true" className="h-4 w-4 shrink-0 text-gold" />
+                <Phone aria-hidden="true" className="h-4 w-4 shrink-0 text-primary" />
                 <a className="transition-colors hover:text-foreground" href={`tel:${STUDIO.phone}`}>
                   {STUDIO.phone}
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail aria-hidden="true" className="h-4 w-4 shrink-0 text-gold" />
+                <Mail aria-hidden="true" className="h-4 w-4 shrink-0 text-primary" />
                 <a
                   className="transition-colors hover:text-foreground"
                   href={`mailto:${STUDIO.email}`}
@@ -87,14 +87,14 @@ export function Footer() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@email.com"
-                className="w-full rounded-full border border-border bg-background/60 px-5 py-3 text-sm outline-none transition-shadow duration-500 placeholder:text-muted-foreground focus:border-gold/70 focus:shadow-luxe"
+                className="w-full rounded-full border border-border bg-background/60 px-5 py-3 text-sm outline-none transition-shadow duration-500 placeholder:text-muted-foreground focus:border-primary/70 focus:shadow-luxe"
               />
               <div className="mt-3">
                 <LuxuryButton type="submit" size="sm" variant="outline">
                   Subscribe
                 </LuxuryButton>
               </div>
-              <p aria-live="polite" className="mt-3 min-h-5 text-xs text-emerald">
+              <p aria-live="polite" className="mt-3 min-h-5 text-xs text-primary font-medium">
                 {sent ? "Thank you — your first letter is on its way." : ""}
               </p>
             </form>

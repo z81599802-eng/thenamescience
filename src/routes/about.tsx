@@ -20,7 +20,8 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: "About the Studio — The Name Science" },
       {
         property: "og:description",
-        content: "A practitioner-led numerology and namelogy studio in Chennai, serving clients globally.",
+        content:
+          "A practitioner-led numerology and namelogy studio in Chennai, serving clients globally.",
       },
       { property: "og:url", content: `${STUDIO.url}/about` },
     ],
@@ -157,14 +158,22 @@ function About() {
         </div>
 
         <div className="mt-20">
-          <SectionHeading eyebrow="Our 11 Consultations" title="Eleven core numerology & namelogy services" align="center" />
+          <SectionHeading
+            eyebrow="Our 11 Consultations"
+            title="Eleven core numerology & namelogy services"
+            align="center"
+          />
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {SERVICES.map((s, i) => (
               <Reveal key={s.slug} delay={i * 0.04}>
                 <GlassCard className="h-full flex flex-col">
-                  <p className="font-display text-2xl text-gold/70">{String(i + 1).padStart(2, "0")}</p>
+                  <p className="font-display text-2xl text-gold/70">
+                    {String(i + 1).padStart(2, "0")}
+                  </p>
                   <h3 className="mt-3 text-xl font-medium">{s.title}</h3>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{s.detail}</p>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+                    {s.detail}
+                  </p>
                   <GoldRule className="mt-5" />
                   <p className="mt-3 text-[0.68rem] uppercase tracking-[0.16em] text-muted-foreground">
                     {s.duration} · {s.mode}

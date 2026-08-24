@@ -77,9 +77,9 @@ function Contact() {
                   </a>
                 </li>
                 <li className="flex gap-4">
-                  <MessageCircle aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-emerald-500" />
+                  <MessageCircle aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                   <a
-                    className="text-emerald-500 hover:text-emerald-400 font-medium transition-colors"
+                    className="text-primary hover:text-primary/80 font-medium transition-colors"
                     href={`https://wa.me/${STUDIO.whatsapp}?text=${encodeURIComponent("Hello! I would like to enquire about a consultation with The Name Science.")}`}
                     target="_blank"
                     rel="noreferrer"
@@ -112,7 +112,7 @@ function Contact() {
               </p>
 
               {sent ? (
-                <div className="mt-7 rounded-lg border border-emerald-500/30 bg-emerald-500/10 p-6 text-center">
+                <div className="mt-7 rounded-lg border border-primary/30 bg-primary/10 p-6 text-center">
                   <p className="text-lg font-medium text-foreground">Enquiry ready to send!</p>
                   <p className="mt-2 text-sm text-muted-foreground">
                     If WhatsApp didn't open automatically in a new window, tap below to launch it directly.
