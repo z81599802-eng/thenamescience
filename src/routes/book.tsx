@@ -297,6 +297,45 @@ function Book() {
           </GlassCard>
         </div>
       </Section>
+
+      {/* Brand Red Section - Booking Assurance */}
+      <Section brand className="py-20">
+        <div className="text-center max-w-2xl mx-auto">
+          <p className="eyebrow text-gold-bright font-semibold tracking-[0.24em]">Client Assurance</p>
+          <h2 className="mt-3 font-display text-3xl sm:text-4xl text-white">
+            Private, Confidential, and Practitioner-Led
+          </h2>
+          <p className="mt-3 text-sm text-white/85 leading-relaxed">
+            Your birth date, name, and questions are treated with absolute discretion. No automated templates — every reading is prepared individually.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-6 sm:grid-cols-3 max-w-4xl mx-auto">
+          {[
+            {
+              title: "Strict Confidentiality",
+              text: "All chart calculations, personal questions, and notes remain completely private.",
+            },
+            {
+              title: "Handcrafted Analysis",
+              text: "Both Pythagorean and Chaldean systems calculated meticulously before your arrival.",
+            },
+            {
+              title: "Clear Direct Action",
+              text: "Practical guidance on dates, spelling, and milestones with lifetime reference documents.",
+            },
+          ].map((card, i) => (
+            <div
+              key={card.title}
+              className="rounded-lg border border-white/20 bg-black/25 p-6 backdrop-blur-md text-white transition-all duration-500 hover:-translate-y-1 hover:border-white/40 hover:bg-black/35 hover:shadow-2xl"
+            >
+              <span className="font-display text-2xl text-gold-bright font-medium">0{i + 1}</span>
+              <h3 className="mt-3 text-base font-medium text-white">{card.title}</h3>
+              <p className="mt-2 text-xs text-white/80 leading-relaxed">{card.text}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
     </>
   );
 }

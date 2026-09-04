@@ -186,19 +186,20 @@ function About() {
       </Section>
 
       {/* Journey & Studio Details */}
-      <Section muted>
+      <Section brand>
         <SectionHeading
           eyebrow="How a consultation runs"
           title="Five steps, from intake to follow-through"
           align="center"
+          invert={true}
         />
         <ol className="mt-16 grid gap-6 md:grid-cols-3 lg:grid-cols-5">
           {JOURNEY.map((j, i) => (
             <Reveal key={j.step} delay={i * 0.06}>
-              <li className="h-full rounded-lg border border-border/70 bg-card/60 p-7">
-                <p className="font-display text-3xl text-gold/70">0{i + 1}</p>
-                <h3 className="mt-5 text-lg">{j.step}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{j.body}</p>
+              <li className="h-full rounded-lg border border-white/20 bg-black/25 p-7 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-white/40 hover:bg-black/35 hover:shadow-2xl">
+                <p className="font-display text-3xl text-gold-bright font-medium">0{i + 1}</p>
+                <h3 className="mt-5 text-lg text-white font-medium">{j.step}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/85">{j.body}</p>
               </li>
             </Reveal>
           ))}
@@ -216,11 +217,27 @@ function About() {
           ].map((c) => (
             <Reveal key={c.t}>
               <GlassCard className="h-full">
-                <h3 className="text-xl">{c.t}</h3>
+                <h3 className="text-xl font-medium">{c.t}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.d}</p>
               </GlassCard>
             </Reveal>
           ))}
+        </div>
+      </Section>
+
+      <Section brand className="py-20 text-center">
+        <div className="mx-auto max-w-2xl">
+          <h2 className="font-display text-3xl sm:text-4xl text-white">
+            Ready to discover your chart's unique vibrations?
+          </h2>
+          <p className="mt-4 text-sm text-white/85 leading-relaxed">
+            Every reading is handcrafted with precision, confidentiality, and over 20 years of research.
+          </p>
+          <div className="mt-8 flex justify-center">
+            <LuxuryLink to="/book" variant="white">
+              Book Your Consultation
+            </LuxuryLink>
+          </div>
         </div>
       </Section>
     </>

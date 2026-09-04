@@ -211,6 +211,35 @@ function Contact() {
           </Reveal>
         </div>
       </Section>
+
+      {/* Brand Red Section - Direct Assistance */}
+      <Section brand className="py-20 text-center">
+        <div className="max-w-3xl mx-auto">
+          <p className="eyebrow text-gold-bright font-semibold tracking-[0.24em]">Immediate Assistance</p>
+          <h2 className="mt-3 font-display text-3xl sm:text-4xl text-white">
+            Prefer a Direct Conversation Before Booking?
+          </h2>
+          <p className="mt-3 text-sm sm:text-base text-white/85 leading-relaxed">
+            Our studio team is available during operating hours ({STUDIO.hours}) for general queries regarding consultation formats, required birth details, and scheduling.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <a
+              href={`https://wa.me/${STUDIO.whatsapp}?text=${encodeURIComponent("Hello! I have a question regarding consultation formats with The Name Science.")}`}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-[0.8rem] font-semibold uppercase tracking-[0.16em] text-primary shadow-lift transition-transform hover:scale-[1.03] hover:bg-white/95"
+            >
+              <MessageCircle className="h-4 w-4" /> Chat on WhatsApp
+            </a>
+            <a
+              href={`tel:${STUDIO.phone}`}
+              className="inline-flex items-center gap-2 rounded-full border border-white/60 bg-transparent px-7 py-3.5 text-[0.8rem] font-medium uppercase tracking-[0.16em] text-white transition-colors hover:bg-white/15"
+            >
+              <Phone className="h-4 w-4" /> Call Studio
+            </a>
+          </div>
+        </div>
+      </Section>
     </>
   );
 }

@@ -301,16 +301,21 @@ function NumberShowcase() {
 
 function WhyChooseUs() {
   return (
-    <section className="py-28">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <SectionHeading eyebrow="Why the studio" title="Considered, private, and unhurried" />
+    <section className="relative overflow-hidden bg-brand-red py-28 text-white shadow-2xl">
+      <ConstellationLines className="opacity-30" />
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
+        <SectionHeading
+          eyebrow="Why the studio"
+          title="Considered, private, and unhurried"
+          invert={true}
+        />
         <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {WHY_US.map((w, i) => (
             <Reveal key={w.title} delay={i * 0.05}>
-              <div className="group h-full rounded-lg border border-border/70 bg-card/50 p-8 transition-all duration-500 hover:-translate-y-1 hover:border-gold/50 hover:shadow-luxe">
-                <div className="hairline w-10 transition-all duration-500 group-hover:w-20" />
-                <h3 className="mt-6 text-xl">{w.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{w.body}</p>
+              <div className="group h-full rounded-lg border border-white/20 bg-black/25 p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-white/40 hover:bg-black/35 hover:shadow-2xl">
+                <div className="h-[1px] w-10 bg-gradient-to-r from-gold-bright via-white/60 to-transparent transition-all duration-500 group-hover:w-20" />
+                <h3 className="mt-6 text-xl text-white font-medium">{w.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-white/85">{w.body}</p>
               </div>
             </Reveal>
           ))}
@@ -336,7 +341,7 @@ function Calculators() {
                 key={`${c}-${i}`}
                 className="glass-panel flex items-center gap-4 rounded-full px-8 py-5"
               >
-                <span className="font-display text-2xl text-gold">
+                <span className="font-display text-2xl text-primary font-medium">
                   {String((i % 11) + 1)}
                 </span>
                 <span className="whitespace-nowrap text-sm tracking-wide">{c}</span>
@@ -369,7 +374,7 @@ function Stories() {
               <GlassCard className="flex h-full flex-col">
                 <div className="relative mb-7 aspect-video overflow-hidden rounded-md border border-border/60 bg-muted/60">
                   <div className="absolute inset-0 grid place-items-center">
-                    <span className="grid h-14 w-14 place-items-center rounded-full border border-gold/60 text-gold">
+                    <span className="grid h-14 w-14 place-items-center rounded-full border border-primary/40 text-primary">
                       ▶
                     </span>
                   </div>
@@ -379,7 +384,7 @@ function Stories() {
                 </div>
                 <p className="font-display text-xl leading-relaxed">“{t.quote}”</p>
                 <GoldRule className="mt-6" />
-                <p className="mt-4 text-sm">{t.name}</p>
+                <p className="mt-4 text-sm font-medium text-foreground">{t.name}</p>
                 <p className="text-xs text-muted-foreground">{t.role}</p>
               </GlassCard>
             </Reveal>
@@ -399,22 +404,24 @@ function Stories() {
 
 function ClosingCta() {
   return (
-    <section className="relative overflow-hidden py-32">
+    <section className="relative overflow-hidden bg-brand-red py-32 text-white shadow-2xl">
       <SacredGeometry variant="soft" />
       <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-8">
-        <h2 className="font-display text-4xl leading-tight text-balance-luxe sm:text-6xl">
+        <h2 className="font-display text-4xl leading-tight text-balance-luxe sm:text-6xl text-white">
           <StaggerText text="Your Journey Begins With One Number" />
         </h2>
         <Reveal delay={0.3}>
-          <p className="mx-auto mt-8 max-w-xl text-[1.02rem] leading-relaxed text-muted-foreground">
+          <p className="mx-auto mt-8 max-w-xl text-[1.02rem] leading-relaxed text-white/90">
             Bring the question you have been carrying. We will look at it together, calmly, with the
             chart in front of us.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
-            <LuxuryLink to="/book">Book Consultation</LuxuryLink>
+            <LuxuryLink to="/book" variant="white">
+              Book Consultation
+            </LuxuryLink>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-[0.8rem] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-foreground"
+              className="inline-flex items-center gap-2 rounded-full border border-white/60 bg-transparent px-6 py-3.5 text-[0.8rem] uppercase tracking-[0.18em] text-white transition-colors hover:bg-white/15"
             >
               Ask a question <ArrowRight className="h-3.5 w-3.5" />
             </Link>

@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { SacredGeometry } from "@/components/luxury/backgrounds";
 import { Reveal, StaggerText } from "@/components/motion/primitives";
+import { cn } from "@/lib/utils";
 
 export function PageHero({
   eyebrow,
@@ -44,14 +45,23 @@ export function Section({
   children,
   className,
   muted = false,
+  brand = false,
 }: {
   children: ReactNode;
   className?: string;
   muted?: boolean;
+  brand?: boolean;
 }) {
   return (
-    <section className={`${muted ? "bg-secondary/40 " : ""}py-24 ${className ?? ""}`}>
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">{children}</div>
+    <section
+      className={cn(
+        "py-24 transition-colors",
+        muted && "bg-secondary/40",
+        brand && "bg-brand-red text-white relative overflow-hidden shadow-2xl",
+        className,
+      )}
+    >
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8">{children}</div>
     </section>
   );
 }

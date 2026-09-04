@@ -39,6 +39,8 @@ const variants = {
   emerald: "bg-primary text-primary-foreground hover:brightness-110 shadow-luxe",
   outline: "border border-primary/40 text-foreground hover:bg-primary/10",
   ghost: "text-foreground/80 hover:text-foreground",
+  white: "bg-white text-primary hover:bg-white/90 shadow-lift font-semibold",
+  "white-outline": "border border-white/60 text-white hover:bg-white/15",
 };
 
 type LuxuryButtonProps = {
@@ -97,12 +99,14 @@ export function SectionHeading({
   description,
   align = "left",
   className,
+  invert = false,
 }: {
   eyebrow?: string;
   title: string;
   description?: string;
   align?: "left" | "center";
   className?: string;
+  invert?: boolean;
 }) {
   return (
     <div
@@ -112,12 +116,28 @@ export function SectionHeading({
         className,
       )}
     >
-      {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-      <h2 className="mt-4 text-3xl leading-[1.12] text-balance-luxe sm:text-4xl md:text-5xl">
+      {eyebrow && (
+        <p className={cn("eyebrow", invert ? "text-gold-bright font-semibold tracking-[0.24em]" : "text-bronze")}>
+          {eyebrow}
+        </p>
+      )}
+      <h2
+        className={cn(
+          "mt-4 text-3xl leading-[1.12] text-balance-luxe sm:text-4xl md:text-5xl",
+          invert ? "text-white font-normal" : "text-foreground",
+        )}
+      >
         {title}
       </h2>
       {description && (
-        <p className="mt-5 text-[0.98rem] leading-relaxed text-muted-foreground">{description}</p>
+        <p
+          className={cn(
+            "mt-5 text-[0.98rem] leading-relaxed",
+            invert ? "text-white/85" : "text-muted-foreground",
+          )}
+        >
+          {description}
+        </p>
       )}
     </div>
   );
