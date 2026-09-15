@@ -15,7 +15,7 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Twenty years of practitioner-led numerology and namelogy. Meet the studio, its scientific method, core numerology readings and namelogy guidance.",
+          "Twenty Two years of practitioner-led numerology and namelogy. Meet the studio, its scientific method, core numerology readings and namelogy guidance.",
       },
       { property: "og:title", content: "About the Studio — The Name Science" },
       {

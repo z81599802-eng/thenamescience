@@ -73,14 +73,14 @@ function Hero() {
       <div className="relative mx-auto grid w-full max-w-7xl gap-16 px-5 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div>
           <Reveal>
-            <p className="eyebrow">Numerology · Namelogy · 20+ Years</p>
+            <p className="eyebrow">Namelogy · Numerology · 22+ Years</p>
           </Reveal>
           <h1 className="mt-7 font-display text-[2.6rem] leading-[1.06] text-balance-luxe sm:text-6xl lg:text-[4.2rem]">
-            <StaggerText text="Unlock the Power Hidden Within Your Numbers" />
+            <StaggerText text="Unlock the Power Hidden Within Your Names" />
           </h1>
           <Reveal delay={0.35}>
             <p className="mt-8 max-w-xl text-[1.02rem] leading-relaxed text-muted-foreground">
-              Discover your life purpose through professional numerology and namelogy consultations
+              Discover your life purpose through professional namelogy and numerology consultations
               designed to guide your personal and professional journey.
             </p>
           </Reveal>
@@ -252,11 +252,10 @@ function NumberShowcase() {
                 onClick={() => setActive(n)}
                 aria-pressed={active === n}
                 aria-label={`Number ${n}: ${NUMBER_PROFILES[n]?.title ?? ""}`}
-                className={`group relative aspect-square rounded-full border transition-all duration-500 ${
-                  active === n
-                    ? "border-gold bg-gold/15 shadow-luxe"
-                    : "border-border/70 hover:border-gold/60 hover:bg-gold/8"
-                }`}
+                className={`group relative aspect-square rounded-full border transition-all duration-500 ${active === n
+                  ? "border-gold bg-gold/15 shadow-luxe"
+                  : "border-border/70 hover:border-gold/60 hover:bg-gold/8"
+                  }`}
               >
                 <span className="grid h-full w-full place-items-center font-display text-xl sm:text-2xl transition-transform duration-500 group-hover:scale-110">
                   {n}
