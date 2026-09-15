@@ -28,7 +28,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Unlock the power hidden within your numbers. Life path readings, name correction, business and baby naming.",
+          "Unlock the power hidden within your names. Life path readings, name correction, business and baby naming.",
       },
       { property: "og:url", content: `${STUDIO.url}/` },
     ],

@@ -1,6 +1,6 @@
 # Lumina Numerics
 
-Design and develop a world-class premium frontend website for a Numerology & Namelogy Consultation Studio.
+Design and develop a world-class premium frontend website for a Namelogy & Numerology Consultation Studio.
 
 This website is not just an information website.
 
@@ -255,7 +255,7 @@ Slow moving gradients
 
 Headline
 
-"Unlock the Power Hidden Within Your Numbers"
+"Unlock the Power Hidden Within Your Names"
 
 Subheadline
 
