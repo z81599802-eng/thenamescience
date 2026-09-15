@@ -19,7 +19,7 @@ export function Footer() {
               <img src="/logo.png" alt={STUDIO.name} className="h-12 sm:h-16 md:h-20 w-auto object-contain" />
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              A consultation studio where numerology, namelogy and modern counselling meet — calm,
+              A consultation studio where namelogy, numerology and modern counselling meet — calm,
               structured and entirely confidential.
             </p>
             <ul className="mt-8 space-y-3 text-sm text-muted-foreground">

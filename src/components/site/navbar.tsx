@@ -64,7 +64,7 @@ export function Navbar() {
           <img
             src="/logo.png"
             alt={STUDIO.name}
-            className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto shrink-0 object-contain transition-all duration-300"
+            className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto shrink-0 object-contain transition-all duration-300 brightness-[1.2] contrast-125 saturate-150 drop-shadow-sm"
           />
         </Link>
 
